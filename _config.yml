@@ -2,6 +2,6 @@ theme: jekyll-theme-hacker
 title: Welcome to CloudForensicator.com
 name: CloudForensicator.com
 description: This project is dedicated to Cloud Forensics using PowerShell module Hawk.
-baseurl: "/hawk.github.io"
+#baseurl: "/hawk.github.io"
 url: "https://cloudforensicator.com"
 twitter_username: t0pcyber

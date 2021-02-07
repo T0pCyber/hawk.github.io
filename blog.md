@@ -1,8 +1,4 @@
-﻿---
-layout: blogdirectory
-title: Blog Posts
----
-[Home](index.md) |
+﻿[Home](index.md) |
 [About us](about.md) |
 [Documentation](documentation.md)
 #  The Hawk Blog

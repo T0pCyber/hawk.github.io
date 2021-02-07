@@ -1,7 +1,7 @@
 ## Welcome to Hawk Forensics Pages
-[About us ](about.md)
-[Hawk Blog ](blog.md)
-[Documentation ](documentation.md)
+[About us ](about.md) |
+[Hawk Blog ](blog.md) |
+[Documentation](documentation.md)
 
 <img src="https://i.ibb.co/3cPMTM1/Hawk-2.png" alt="Hawk"
 	title="Cyber Hawk" width="300" height="200" />

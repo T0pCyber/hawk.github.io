@@ -1,6 +1,7 @@
-﻿﻿[Home](index.md) |
-[About us](about.md) |
-[Hawk Blog](blog.md) |
+﻿﻿---
+layout: default.html
+title: "Documentation"
+---
 #  Documentation
 
 Welcome to the documentation section, the central place to look for documentation on Hawk

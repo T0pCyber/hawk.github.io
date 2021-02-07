@@ -1,3 +1,8 @@
+---
+layout: default.html
+title: Hawk Forensics
+---
+
 ## Welcome to Hawk Forensics Pages
 [About us](about.md) |
 [Hawk Blog](blog.md) |

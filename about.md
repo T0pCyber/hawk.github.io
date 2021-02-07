@@ -1,5 +1,5 @@
 ﻿---
-layout: default.html
+layout: default
 title: "About us"
 ---
 #  Who we are

@@ -1,6 +1,6 @@
 ---
-layout: default.html
-title: Hawk Forensics
+layout: default
+title: "Hawk Forensics"
 ---
 
 ## Welcome to Hawk Forensics Pages

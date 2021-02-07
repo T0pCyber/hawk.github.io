@@ -1,5 +1,5 @@
 ﻿---
 layout: blogdirectory
-title: "Blog posts"
+title: Blog posts
 ---
 #  The Hawk Blog

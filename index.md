@@ -2,13 +2,9 @@
 layout: default
 title: Hawk Forensics
 ---
-
 ## Welcome to Hawk Forensics Pages
 <img src="https://i.ibb.co/3cPMTM1/Hawk-2.png" alt="Hawk"
 	title="Cyber Hawk" width="300" height="200" />
-
-
-
 
 You can use the [editor on GitHub](https://github.com/T0pCyber/hawk.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 

@@ -9,7 +9,7 @@ It is important that the account you will be using has the proper permissions in
 
 1. Azure Active Directory
     - Global Reader
-2. Exchange Online Admin Center. ***We recommend you create a custom group.*** The following permissions need to be assigned to the group or the user that will be doing the investigation. If you don't want to create a custom group, you can also assign the user to ***Compliance Management*** or ***Organization Managment***. But that is a lot power.
+2. Exchange Online Admin Center. ***We recommend you create a custom group.*** The following permissions need to be assigned to the group and the user that will be doing the investigation assigned to that group. If you don't want to create a custom group, you can also assign the user to ***Compliance Management*** or ***Organization Managment***. But that is a lot power.
     - View-Only Audit Log
     
 Run all the following steps from PowerShell as Administrator

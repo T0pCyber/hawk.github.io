@@ -22,6 +22,6 @@ User based cmdlets take the form Verb-HawkUser. They all expect a -user switch a
 
 Some of the Hawk cmdlets will flag results that should be further reviewed. These will appear in _Investigate files. These are NOT indicative of unwanted activity but are simply things that should reviewed.
 
-For more detailed instructions please continue to the [Documention](documentation.md) page.
+For more detailed instructions please continue to the [Documentation](documentation.md) page.
 # Disclaimer
 Hawk is NOT an official MICROSOFT tool. Therefore use of the tool is covered exclusively by the license associated with this [github](https://github.com/T0pCyber/hawk/blob/master/LICENSE) repository.

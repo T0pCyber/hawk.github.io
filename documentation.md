@@ -8,17 +8,10 @@ Welcome to the documentation section, the central place to look for documentatio
 It is important that the account you will be using has the proper permissions in Azure Active Directory and Microsoft 365. The following are the minimum permissions you will need to successful run an investigation with Hawk.
 
 1. Azure Active Directory
-    - Security Reader
-2. Security and Compliance Center
-    - Compliance Administrator
-3. Exchange Online Admin Center. ***We recommend you create a custom group.*** The following permissions need to be assigned to the group or the user that will be doing the investigation.
-    - Mail Recipients
-    - Security Group Creation and Membership
-    - User Options
+    - Global Reader
+2. Exchange Online Admin Center. ***We recommend you create a custom group.*** The following permissions need to be assigned to the group or the user that will be doing the investigation. If you don't want to create a custom group, you can also assign the user to ***Compliance Management*** or ***Organization Managment***. But that is a lot power.
     - View-Only Audit Log
-    - View-Only Configuration
-    - View-Only Recipients
-
+    
 Run all the following steps from PowerShell as Administrator
 
 1. Run the following command to check the PowerShell version you are running. Hawk requires that you are running version 5 currently. Do not use a higher version at this time. There are bugs we need to work out.
@@ -79,3 +72,5 @@ TransportConfig.csv | Hawk_{Date}_{Time}\Tenant |
 ## Hunting
 
 ## References
+
+[About the Exchange Online PowerShell V2 Module](https://docs.microsoft.com/en-us/powershell/exchange/exchange-online-powershell-v2?view=exchange-ps)

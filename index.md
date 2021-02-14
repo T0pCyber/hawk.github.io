@@ -6,42 +6,22 @@ title: Hawk Forensics
 <img src="https://i.ibb.co/3cPMTM1/Hawk-2.png" alt="Hawk"
 	title="Cyber Hawk" width="300" height="200" />
 
-You can use the [editor on GitHub](https://github.com/T0pCyber/hawk.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+#  Purpose
+The Hawk PowerShell module has been designed to ease the burden on M365 security people who are performing a forensic analysis in their organization.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+It does NOT take the place of a human reviewing the data generated and is simply here to make data gathering easier.
+#  What Hawk is and isn't
+Hawk provides limited analysis of the gathered data from M365 and Azure Active Directory. This is by design! Hawk is here to help get all of the data in a single place it is not designed to make any significant conclusions about this data. This is intentional since it is impossible for the tool to know enough about your environment or what you are concerned about to make a legitimate analysis of the data.
 
-### Markdown
+Hawk's goal is to quickly get you the data that is needed to come to a conclusion; not to make the conclusion for you. We've structured the exported data in a manner of which can help analysts quickly triage known malicious Indicators Of Compromise (IOC) but again is NOT an all exhaustive list.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+# How to use
+Hawk is divided into two primary forms of cmdlets; user based Cmdlets and tenant based cmdlets.
 
-```markdown
-Syntax highlighted code block
+User based cmdlets take the form Verb-HawkUser. They all expect a -user switch and will retrieve information specific to the user that is specified. Tenant based cmdlets take the form Verb-HawkTenant. They don't need any switches and will return information about the whole tenant.
 
-# Header 1
-## Header 2
-### Header 3
+Some of the Hawk cmdlets will flag results that should be further reviewed. These will appear in _Investigate files. These are NOT indicative of unwanted activity but are simply things that should reviewed.
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-```powershell
-Start-HawkTenantInvestigation
-```
-
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/T0pCyber/hawk.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+For more detailed instructions please continue to the [Documentation](documentation.md) page.
+# Disclaimer
+Hawk is NOT an official MICROSOFT tool. Therefore use of the tool is covered exclusively by the license associated with this [github](https://github.com/T0pCyber/hawk/blob/master/LICENSE) repository.

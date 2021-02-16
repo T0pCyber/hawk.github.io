@@ -15,15 +15,16 @@ It is important that the account you will be using has the proper permissions in
 Run all the following steps from PowerShell as Administrator
 
 1. Run the following command to check the PowerShell version you are running. Hawk requires that you are running version 5 currently. Do not use a higher version at this time. There are bugs we need to work out.
-`$PSVersionTable`
+    - `$PSVersionTable`
 
 ![PSVersionTable](/images/psversiontable.png)
 
-2. Run the following command to install the Hawk PowerShell module from the PowerShell Gallery.
-`Install-Module -Name Hawk`
-3. If you do not have the Exchange Online PowerShell V2 Module installed. We recommend using this version because it supports Modern Authentication.
-    - `Install-Module -Name ExchangeOnlineManagement`
+2. Run the following to ensure you don't run into issues installing additional modules and running Hawk.
     - `Set-ExecutionPolicy RemoteSigned`
+3. Run the following command to install the Hawk PowerShell module from the PowerShell Gallery.
+    - `Install-Module -Name Hawk`
+4. If you do not have the Exchange Online PowerShell V2 Module installed. We recommend using this version because it supports Modern Authentication.
+    - `Install-Module -Name ExchangeOnlineManagement`
     - `Import-Module ExchangeOnlineManagement`
 
 ## Implementation
@@ -50,27 +51,38 @@ It is best to log into all the Azure/M365 services before running any of the Haw
 
 ### Log File Breakdown
 
-Once Hawk completes, it will produce multiple log files (csv) in the location you defined when running `Start-HawkTenantInvestigation`. The following is the breakdown of the log files created.
+Once Hawk completes, it will produce multiple log files (csv, txt and xml) in the location you defined when running `Start-HawkTenantInvestigation`. The following is the breakdown of the log files created.
 
 Log File | Location | Description
 -------- | -------- | -----------
 _Investigate | Hawk_{Date}_{Time} | Is a quick and dirty logfile of some suspicious stuff that you may want to start your investigation.
 Hawk.log | Hawk_{Date}_{Time} | Copy of the output of the processes that was observed in the PowerShell command window.
 YYYY-MM-DD_logs.csv | Hawk_{Date}_{Time} | Logfile of all the functions that were ran as part of the "Start-HawkTenantInvestigation".
-AdminAuditLogConfig.txt | Hawk_{Date}_{Time}\Tenant |Exchange Admin Audit Log Settings
-AzureADAdministrators.csv | Hawk_{Date}_{Time}\Tenant |
-Consent_Grants.csv | Hawk_{Date}_{Time}\Tenant |
-EDiscoveryRoleAssignments.csv | Hawk_{Date}_{Time}\Tenant |
-EDiscoveryRoles.csv | Hawk_{Date}_{Time}\Tenant |
-ExchangeOnlineAdministrators.csv | Hawk_{Date}_{Time}\Tenant |
-Impersonation_Rights.csv | Hawk_{Date}_{Time}\Tenant |
-Impersonation_Roles.csv | Hawk_{Date}_{Time}\Tenant |
-OrgConfig.txt | Hawk_{Date}_{Time}\Tenant | Exchange Online Organization Settings.
-RBAC_Changes.csv | Hawk_{Date}_{Time}\Tenant |
-RemoteDomain.csv | Hawk_{Date}_{Time}\Tenant |
-Simple_Mailbox_Permissions.csv | Hawk_{Date}_{Time}\Tenant |
-Simple_RBAC_Changes.csv | Hawk_{Date}_{Time}\Tenant |
-TransportConfig.csv | Hawk_{Date}_{Time}\Tenant |
+_Investigate_Impersonation_Rights.csv | Hawk_{Date}_{Time}\Tenant | List all users with impersonation rights if we find more than the default of one.
+_Investigate_Impersonation_Roles.csv | Hawk_{Date}_{Time}\Tenant | List all users with impersonation roles for users that have access if we find more than the default of one.
+_Investigate_Simple_New_InboxRule.csv | Hawk_{Date}_{Time}\Tenant | Cmdlets to create inbox rules that forward or delete email in a simple format.
+AdminAuditLogConfig.txt | Hawk_{Date}_{Time}\Tenant | Configuration of the Exchange admin audit log configuration.
+ApplicationCertsAndSecrets.csv | Hawk_{Date}_{Time}\Tenant | Registered Applications Certificate and Password details.
+Azure_Application_Audit.csv | Hawk_{Date}_{Time}\Tenant | Search the unified audit log for events related to application activity.
+AzureADAdministrators.csv | Hawk_{Date}_{Time}\Tenant | Tenant Azure Active Directory Administrator export.
+Consent_Grants.csv | Hawk_{Date}_{Time}\Tenant | Output of all consent grants.
+EDiscoveryRoleAssignments.csv | Hawk_{Date}_{Time}\Tenant | All users that are assigned one of the discovered roles.
+EDiscoveryRoles.csv | Hawk_{Date}_{Time}\Tenant | All roles that have access to the New-MailboxSearch and Search-Mailbox cmdlets.
+ExchangeOnlineAdministrators.csv | Hawk_{Date}_{Time}\Tenant | Exports Exchange Admins.
+Forwarding_Recipients.csv | Hawk_{Date}_{Time}\Tenant | List of unique Email addresses that were setup to receive email via forwarding.
+Impersonation_Rights.csv | Hawk_{Date}_{Time}\Tenant | List all users with impersonation rights if we only find the default one.
+Impersonation_Roles.csv | Hawk_{Date}_{Time}\Tenant | List all users with impersonation roles for users that have access  if we only find the default one.
+OrgConfig.txt | Hawk_{Date}_{Time}\Tenant | Configuration data for an Exchange organization.
+RBAC_Changes.csv | Hawk_{Date}_{Time}\Tenant | All RBAC changes in Raw format.
+RemoteDomain.csv | Hawk_{Date}_{Time}\Tenant | Configuration information for the remote domains configured in your organization.
+Simple_Forwarding_Changes.csv | Hawk_{Date}_{Time}\Tenant | Cmdlets that change forwarding settings in a simple to read format.
+Simple_Mailbox_Permissions.csv | Hawk_{Date}_{Time}\Tenant | Cmdlets that add permissions to users in a simple to read format.
+Simple_New_InboxRule.csv | Hawk_{Date}_{Time}\Tenant | Cmdlets to create any new inbox rules in a simple to read format.
+Simple_RBAC_Changes.csv | Hawk_{Date}_{Time}\Tenant | All RBAC cmdlets that were run in an easy to read format.
+SPNCertsAndSecrets.csv | Hawk_{Date}_{Time}\Tenant | Service Principal Certificate and Password details.
+TransportConfig.csv | Hawk_{Date}_{Time}\Tenant | Organization-wide transport configuration settings.
+TransportRules.csv | Hawk_{Date}_{Time}\Tenant | Transport rules (mail flow rules) in your organization.
+
 
 ## Hunting
 

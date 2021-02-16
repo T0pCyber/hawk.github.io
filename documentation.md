@@ -16,7 +16,9 @@ Run all the following steps from PowerShell as Administrator
 
 1. Run the following command to check the PowerShell version you are running. Hawk requires that you are running version 5 currently. Do not use a higher version at this time. There are bugs we need to work out.
 `$PSVersionTable`
+
 ![PSVersionTable](/images/psversiontable.png)
+
 2. Run the following command to install the Hawk PowerShell module from the PowerShell Gallery.
 `Install-Module -Name Hawk`
 3. If you do not have the Exchange Online PowerShell V2 Module installed. We recommend using this version because it supports Modern Authentication.

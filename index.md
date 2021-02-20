@@ -1,6 +1,5 @@
 ---
 layout: default
-title: Hawk Forensics
 ---
 ## Welcome to Hawk Forensics Pages
 <img src="https://i.ibb.co/3cPMTM1/Hawk-2.png" alt="Hawk"

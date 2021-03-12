@@ -1,4 +1,4 @@
-I"ÿ<h2 id="welcome-to-hawk-forensics-pages">Welcome to Hawk Forensics Pages</h2>
+I"°<h2 id="welcome-to-hawk-forensics-pages">Welcome to Hawk Forensics Pages</h2>
 <p><img src="https://i.ibb.co/3cPMTM1/Hawk-2.png" alt="Hawk" title="Cyber Hawk" width="300" height="200" /></p>
 
 <h1 id="purpose">Purpose</h1>
@@ -15,21 +15,6 @@
 Hawk is divided into two primary forms of cmdlets; user based cmdlets and tenant based cmdlets.
 =======
 Hawk is divided into two primary forms of cmdlets; user based Cmdlets and tenant based cmdlets.</p>
-<blockquote>
-  <blockquote>
-    <blockquote>
-      <blockquote>
-        <blockquote>
-          <blockquote>
-            <blockquote>
-              <p>20c2884273617213d79cd62e132216fb1109081a</p>
-            </blockquote>
-          </blockquote>
-        </blockquote>
-      </blockquote>
-    </blockquote>
-  </blockquote>
-</blockquote>
 
 <p>User based cmdlets take the form Verb-HawkUser. They all expect a -user switch and will retrieve information specific to the user that is specified. Tenant based cmdlets take the form Verb-HawkTenant. They donâ€™t need any switches and will return information about the whole tenant.</p>
 

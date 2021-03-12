@@ -13,13 +13,9 @@ It does NOT take the place of a human reviewing the data generated and is simply
 Hawk provides limited analysis of the gathered data from M365 and Azure Active Directory. This is by design! Hawk is here to help get all of the data in a single place it is not designed to make any significant conclusions about this data. This is intentional since it is impossible for the tool to know enough about your environment or what you are concerned about to make a legitimate analysis of the data.
 
 Hawk's goal is to quickly get you the data that is needed to come to a conclusion; not to make the conclusion for you. We've structured the exported data in a manner of which can help analysts quickly triage known malicious Indicators Of Compromise (IOC) but again is NOT an all exhaustive list.
-
 # How to use
-<<<<<<< HEAD
+
 Hawk is divided into two primary forms of cmdlets; user based cmdlets and tenant based cmdlets.
-=======
-Hawk is divided into two primary forms of cmdlets; user based Cmdlets and tenant based cmdlets.
->>>>>>> 20c2884273617213d79cd62e132216fb1109081a
 
 User based cmdlets take the form Verb-HawkUser. They all expect a -user switch and will retrieve information specific to the user that is specified. Tenant based cmdlets take the form Verb-HawkTenant. They don't need any switches and will return information about the whole tenant.
 
@@ -29,6 +25,4 @@ For more detailed instructions please continue to the [Documentation](documentat
 # Disclaimer
 <<<<<<< HEAD
 Hawk is NOT an official MICROSOFT tool. Therefore use of the tool is covered exclusively by the license associated with this [github](https://github.com/T0pCyber/hawk/blob/master/LICENSE) repository.
-=======
-Hawk is NOT an official MICROSOFT tool. Therefore use of the tool is covered exclusively by the license associated with this [github](https://github.com/T0pCyber/hawk/blob/master/LICENSE) repository.
->>>>>>> 20c2884273617213d79cd62e132216fb1109081a
+

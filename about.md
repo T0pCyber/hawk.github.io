@@ -1,5 +1,11 @@
+<<<<<<< HEAD
+---
+layout: page
+title: About
+=======
 ﻿---
 layout: default
+>>>>>>> 20c2884273617213d79cd62e132216fb1109081a
 ---
 #  Who we are
 We are a passionate community of Cloud Forensic professionals and enthusiasts who wants to provide a tool that the security community and consumers of M365 and Azure can use to investigate M365 and Azure compromises on their own.

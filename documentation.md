@@ -1,4 +1,11 @@
+<<<<<<< HEAD
+---
+layout: page
+title: About
+---
+=======
 ﻿﻿
+>>>>>>> 20c2884273617213d79cd62e132216fb1109081a
 # Documentation
 
 Welcome to the documentation section, the central place to look for documentation on Hawk
@@ -88,4 +95,8 @@ TransportRules.csv | Hawk_{Date}_{Time}\Tenant | Transport rules (mail flow rule
 
 ## References
 
+<<<<<<< HEAD
 [About the Exchange Online PowerShell V2 Module](https://docs.microsoft.com/en-us/powershell/exchange/exchange-online-powershell-v2?view=exchange-ps)
+=======
+[About the Exchange Online PowerShell V2 Module](https://docs.microsoft.com/en-us/powershell/exchange/exchange-online-powershell-v2?view=exchange-ps)
+>>>>>>> 20c2884273617213d79cd62e132216fb1109081a

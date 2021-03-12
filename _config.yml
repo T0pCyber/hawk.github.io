@@ -3,7 +3,7 @@ description: "Hawk Forensic Resources"
 author:
   name: "Hawk Community"
   email: "hawkfeedback@microsoft.com"
-  # baseurl: "/hawk.github.io"
+  baseurl: "/hawk.github.io"
   url: "https://cloudforensicator.com"
 
 baseurl: /

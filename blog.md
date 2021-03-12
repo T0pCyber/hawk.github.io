@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 layout: page
 title: Blog
@@ -37,9 +36,4 @@ title: Blog
 
   {% endif %}
 </section>
-=======
-﻿---
-layout: blogdirectory
----
-#  The Hawk Blog
->>>>>>> 20c2884273617213d79cd62e132216fb1109081a
+

@@ -2,7 +2,7 @@
 layout: default
 ---
 ## Welcome to Hawk Forensics Pages
-<img src="https://i.ibb.co/3cPMTM1/Hawk-2.png" alt="Hawk"
+<img src="./images/hawklogo.png" alt="Hawk"
 	title="Cyber Hawk" width="300" height="200" />
 
 #  Purpose

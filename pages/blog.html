@@ -1,0 +1,280 @@
+<!-- blog.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hawk - Blog</title>
+
+  <!-- google analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPNR1QR0MG"></script>
+  <script src="../assets/js/google-analytics.js" defer></script>
+
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome (optional if needed) -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    rel="stylesheet"
+  />
+  <!-- Global Styles (styles.css) -->
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+    <!-- Custom Styles (styles.css) -->
+  <link rel="stylesheet" href="../assets/css/user-guide.css" />
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+          <a class="navbar-brand" href="../../index.html">
+              <img src="../../assets/images/hawk_logo_no_background.png" alt="Hawk Logo" class="navbar-logo me-2" style="height: 40px;">
+              Hawk
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                      <ul class="navbar-nav ms-auto">
+                        
+                        <!-- user-guide Dropdown -->
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button"
+                             data-bs-toggle="dropdown" aria-expanded="false">
+                            User Guide
+                          </a>
+                          <ul class="dropdown-menu">
+                            <!-- Main docs page -->
+                            <li>
+                              <a class="dropdown-item" href="./user-guide/overview.html">
+                                Overview
+                              </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <!-- Subsections -->
+                            <li>
+                              <a class="dropdown-item" href="./user-guide/installation.html">
+                                Installation
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="./user-guide/permissions-setup.html">
+                                Permissions Setup
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="./user-guide/tenant-investigation.html">
+                                Tenant Investigation
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="./user-guide/user-investigation.html">
+                                User Investigation
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="./user-guide/troubleshooting.html">
+                                Troubleshooting
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="tutorials.html">Tutorials</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="blog.html">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="support.html">Support</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./about.html">About</a>
+              </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+  <!-- Hero / Banner -->
+  <section class="user-guide-hero" >
+    <div class="container text-center">
+      <h1 class="highlight-word">Hawk Blog</h1>
+      <p class="lead">
+        News, Tips, and Insights from the Hawk Development Team
+      </p>
+    </div>
+  </section>
+<!-- Latest Posts Section -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Latest Posts</h2>
+    <div class="row g-4 justify-content-center">
+
+
+      <!-- Original 4.0 Release Post -->
+      <div class="col-md-6 col-lg-5">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Hawk 4.0: Soaring to New Heights</h5>
+            <small class="text-muted mb-2">Posted on February 22, 2025</small>
+            <p class="card-text mt-2">
+              Our biggest release yet has landed! Discover how Hawk 4.0 transforms your investigation workflow with extended 365-day searches, a streamlined non-interactive mode, and several new Microsoft Cloud Log data sources. Come see what's new!
+            </p>
+            <div class="mt-auto">
+              <a href="./blogs/2025-02-22-hawk-4-0-release-announcement.html" class="btn btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Expanded Cloud Logs Post -->
+      <div class="col-md-6 col-lg-5">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Microsoft Expanded Cloud Logs: What They Reveal and How to Retrieve Them</h5>
+            <small class="text-muted mb-2">Posted on February 22, 2025</small>
+            <p class="card-text mt-2">
+              Microsoft and CISA have released a new implementation playbook for expanded audit logging in Microsoft 365. This collaboration introduces four new log types that provide crucial visibility into Exchange, SharePoint, and Teams activities - now available to E3/G3 customers with 180-day retention.
+            </p>
+            <div class="mt-auto">
+              <a href="./blogs/2025-02-22-hawk-expanded-cloud-logs.html" class="btn btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+
+    </div>
+  </div>
+ </section>
+
+<!-- All Posts Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">All Posts</h2>
+    
+
+    <!-- Original 4.0 Release Post -->
+    <div class="card mb-4 shadow-sm">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-8">
+            <small class="text-muted">February 22, 2025</small>
+            <h3 class="mt-2">Hawk 4.0: Soaring to New Heights</h3>
+            <p class="card-text">Our biggest release yet has landed! Discover how Hawk 4.0 transforms your investigation workflow with extended 365-day searches, a streamlined non-interactive mode, and several new Microsoft Cloud Log data sources.</p>
+          </div>
+          <div class="col-md-4 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
+            <a href="./blogs/2025-02-22-hawk-4-0-release-announcement.html" class="btn btn-outline-primary">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Expanded Cloud Logs Post -->
+    <div class="card mb-4 shadow-sm">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-8">
+            <small class="text-muted">February 22, 2025</small>
+            <h3 class="mt-2">Microsoft Expanded Cloud Logs: What They Reveal and How to Retrieve Them</h3>
+            <p class="card-text">Microsoft and CISA have released a new implementation playbook for expanded audit logging in Microsoft 365. This collaboration introduces four new log types that provide crucial visibility into Exchange, SharePoint, and Teams activities - now available to E3/G3 customers with 180-day retention.</p>
+          </div>
+          <div class="col-md-4 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
+            <a href="./blogs/2025-02-22-hawk-expanded-cloud-logs.html" class="btn btn-outline-primary">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h5>About Hawk</h5>
+          <p>
+            A community-driven PowerShell module for Microsoft Cloud security analysis
+            and forensic investigation.
+          </p>
+        </div>
+        <div class="col-lg-3">
+          <h5>Links</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="https://github.com/T0pCyber/hawk" target="_blank"
+                >GitHub</a
+              >
+            </li>
+            <li>
+              <a href="user-guide/overview.html">User Guide</a>
+            </li>
+            <li>
+              <a href="https://github.com/T0pCyber/hawk/discussions" target="_blank"
+                >Community</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h5>Resources</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a
+                href="https://www.powershellgallery.com/packages/Hawk"
+                target="_blank"
+                >PowerShell Gallery</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/T0pCyber/hawk/issues" target="_blank"
+                >Report Issues</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/T0pCyber/hawk/blob/master/LICENSE"
+                target="_blank"
+                >License</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr class="mt-4 mb-4" />
+      <div class="row">
+        <div class="col-12 text-center">
+          <p class="text-center disclaimer mb-0">
+            &copy; <span id="year"></span> Hawk Project.
+          </p>
+          <p class="disclaimer mb-0">
+            Hawk is an open-source project and is not affiliated with Microsoft
+            Corporation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"
+  ></script>
+  <script src="../assets/js/script.js"></script>
+  <script>
+    // Simple year auto-update
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

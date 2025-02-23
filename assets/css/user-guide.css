@@ -1,0 +1,171 @@
+/* Simple example: narrower text width in the doc body, 
+   or custom card coloring, etc. */
+
+/*Restrict paragraphs to a more readable width, if desired */
+
+:root {
+  --hawk-violet: #3D1472;
+  --hawk-purple: #280A50;
+  --hawk-lavender: #AA95C7;
+  --hawk-gray: #F4F4F4;
+  --hawk-orange: #FF6B00;
+  --hawk-black: #171616;
+  --boot-strap-black: #212529;
+}
+
+/* Example of a doc-specific card style */
+.user-guide-card {
+  border: 1px solid #ccc;
+  transition: transform 0.2s ease;
+}
+
+.user-guide-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.user-guide-hero {
+  background: linear-gradient(300deg, #280A50, #3D1472, #553A7F, #280A50);
+  background-size: 240% 240%;
+  animation: gradient-animation 15s ease infinite;
+  color: white;
+  padding: 6rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Larger heading for the banner */
+.user-guide-hero h1 {
+  font-size: 3rem;      /* Adjust as needed */
+  margin: 0;
+  margin-top: 5%;
+}
+
+/* Style for the highlighted word */
+.highlight-word {
+  font-size: 3rem;      /* Adjust as needed */
+  margin: 0;
+  margin-top: 5%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.section-white {
+  background-color: #ffffff; 
+}
+
+.section-gray {
+  background-color: var(--hawk-gray); /* or #f4f4f4, or another gray */
+}
+
+/* Section padding */
+.section-white, .section-gray {
+  padding: 3rem 0; 
+}
+
+/* Highlighted links */
+.text-blue-600 {
+  color: #2563eb;
+}
+
+.text-blue-600:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+
+/* Collapsible section styles */
+.collapsible-header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--hawk-gray);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.collapsible-header:hover {
+  background-color: #e5e7eb;
+}
+
+.collapsible-header h2 {
+  margin-bottom: 0;
+  font-size: 1.5rem;
+}
+
+.expand-text {
+  font-size: 0.9rem;
+  color: var(--hawk-purple);
+  margin-left: 1rem;
+  font-weight: normal;
+}
+
+.collapsible-arrow {
+  display: inline-flex;
+  transition: transform 0.3s ease;
+  font-size: 1.5rem;
+  color: var(--hawk-purple);
+}
+
+.collapsible-arrow.expanded {
+  transform: rotate(90deg);
+}
+
+/* Table container specific collapse styles - prevents jump effect while preserving navbar */
+.table-container .collapsing {
+  height: auto !important;
+  transition: none !important;
+}
+
+.table-container .collapse {
+  transition: none !important;
+}
+
+.table-container .collapse:not(.show) {
+  display: none !important;
+}
+
+/* Table styles */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .table-responsive {
+      padding-bottom: 1rem;
+  }
+  
+  .collapsible-header {
+      padding-right: 1rem;
+  }
+
+  .user-guide-hero {
+    padding-top: 6rem;      /* Increased top padding */
+    padding-bottom: 4rem;    /* Keep bottom consistent */
+}
+
+  .user-guide-hero h1 {
+      font-size: 2rem;
+  }
+}
+
+/* Animation keyframes */
+@keyframes gradient-animation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}

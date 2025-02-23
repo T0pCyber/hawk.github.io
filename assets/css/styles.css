@@ -1,0 +1,382 @@
+:root {
+    --hawk-violet: #3D1472;
+    --hawk-purple: #280A50;
+    --hawk-lavender: #AA95C7;
+    --hawk-gray: #F4F4F4;
+    --hawk-orange: #FF6B00;
+    --hawk-black: #171616;
+    --boot-strap-black: #212529;
+}
+
+
+.terminal-box {
+    background-color: var(--hawk-black);
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-family: "Courier New", Courier, monospace;
+    overflow-x: auto; /* Ensures long commands don't break layout */
+    font-size: 1.1rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer; /* Indicates the element is clickable */
+    position: relative;
+    border: 2px solid transparent; /* Set a transparent border by default */
+}
+
+.terminal-box:hover {
+    background-color: rgba(9, 9, 9, 0.9); /* Darken background slightly on hover */
+    border-color: var(--hawk-lavender); /* Change the border color on hover */
+    color: var(--hawk-lavender); /* Change the text color to lavender */
+}
+
+
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Global font-family */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-logo {
+    padding: 5px;
+}
+
+.navbar-brand:hover {
+    color: var(--hawk-lavender) !important;
+}
+
+
+.hero {
+    background: linear-gradient(300deg, #280A50, #3D1472, #553A7F, #280A50);
+    background-size: 240% 240%;
+    animation: gradient-animation 15s ease infinite;
+    color: white;
+    padding: 6rem 0;
+    padding: 6rem 0; /* Increased padding to push content down */
+    padding-top: 10rem; /* Added extra top padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.hero .btn {
+    width: 220px;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0.5rem;
+}
+
+/* Ensure equal height and vertical alignment */
+.hero .btn-primary,
+.hero .btn-outline-light {
+    height: 48px;
+    line-height: 24px;
+    vertical-align: top;
+}
+
+.hero .btn-outline-light {
+    background-color: #cccccc; /* Background for the GitHub button */
+    border-color: var(--hawk-gray);
+    color: black; /* Font color for the GitHub button */
+}
+
+.hero .btn-outline-light:hover {
+    background-color: #b3b3b3; /* Slightly darker shade on hover */
+    border-color: #b3b3b3; /* Match border with background */
+    color: black; /* Keep the font color black */
+}
+
+.hero .btn-primary {
+    background-color: var(--hawk-orange); /* Keeps the Install button consistent */
+    border-color: var(--hawk-orange);
+    color: white;
+}
+
+.hero .btn-primary:hover {
+    background-color: #e65c00; /* Darker orange on hover */
+}
+
+
+.feature-icon {
+    font-size: 2rem;
+    color: var(--hawk-orange);
+    margin-bottom: 1rem;
+}
+
+.logo-circle {
+    display: block;
+    max-width: 250px; /* Set desired size */
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 0 4px rgba(255, 107, 0, 0.6)); /* Increased blur radius and opacity */
+
+}
+
+
+
+
+.navbar {
+    background-color: var(--hawk-black) !important;
+}
+
+.nav-link {
+    color: white !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--hawk-lavender) !important;
+}
+
+.navbar-brand {
+    color: var(--hawk-gray) !important;
+}
+
+.navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-toggler:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+    outline: none;
+}
+
+.navbar-toggler:active {
+    background-color: rgba(0, 0, 0, 0.2);  /* Darker background when pressed */
+}
+
+.navbar-toggler:not(:active) {
+    background-color: transparent;  /* Normal state remains transparent */
+}
+
+.feature-card {
+    transition: transform 0.3s ease;
+    height: 100%;
+    border-color: var(--hawk-lavender);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--hawk-violet);
+}
+
+.btn-primary {
+    background-color: var(--hawk-orange);
+    border-color: var(--hawk-orange);
+    padding: 0.75rem 1.5rem;
+}
+.btn {
+    padding: 0.5rem 1rem; /* Consistent padding for all buttons */
+    font-size: 1rem; /* Consistent font size for all buttons */
+    width: auto; /* Ensure width is auto unless explicitly set */
+}
+
+.btn-outline-primary,
+.btn-primary {
+    display: inline-block; /* Ensure they respect padding */
+    text-align: center; /* Align text properly */
+    padding: 0.5rem 1rem; /* Match padding */
+    font-size: 1rem; /* Match font size */
+}
+
+.btn-primary {
+    background-color: var(--hawk-orange); /* Keep the orange button style */
+    border-color: var(--hawk-orange);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #e65c00; /* Darker orange on hover */
+}
+
+.btn-outline-primary {
+    color: var(--hawk-purple); /* Purple for the outlined button */
+    border-color: var(--hawk-purple);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--hawk-purple); /* Purple fill on hover */
+    color: white; /* White text on hover */
+    border-color: var(--hawk-purple);
+}
+
+.footer {
+    background-color: var(--hawk-purple);
+    color: var(--hawk-gray);
+    padding: 3rem 0;
+}
+
+.footer a {
+    color: var(--hawk-lavender);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--hawk-gray);
+}
+
+.disclaimer {
+    font-size: 0.9rem;
+    color: var(--hawk-lavender);
+}
+
+.bg-light {
+    background-color: var(--hawk-gray) !important;
+}
+
+.card {
+    border-color: var(--hawk-lavender);
+}
+
+.card:hover {
+    border-color: var(--hawk-violet);
+}
+
+.text-success {
+    color: var(--hawk-orange) !important;
+}
+
+installation-code {
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+}
+
+code {
+    background-color: var(--boot-strap-black);
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+}
+
+
+.dropdown-menu {
+    background-color: var(--hawk-black); /* Use the consistent Hawk black background */
+    border: none;
+    padding: 0.5rem 0; /* Add consistent padding */
+    margin: 0; /* Remove any margin */
+}
+
+.dropdown-item {
+    color: white;
+    transition: color 0.3s ease;
+    background-color: transparent;
+    padding: 0.5rem 1rem; /* Consistent padding around items */
+    margin: 0; /* Remove any margin */
+}
+
+/* Hover styles for dropdown items */
+.dropdown-item:hover {
+    color: var(--hawk-lavender);
+    background-color: rgba(170, 149, 199, 0.1); /* Very subtle lavender background */
+}
+
+/* Remove extra spacing after divider */
+.dropdown-divider {
+    margin: 0.25rem 0; /* Minimal margin around divider */
+    border-color: var(--hawk-lavender); /* Match divider color to theme */
+    opacity: 0.2; /* Make divider subtler */
+}
+
+
+
+.terminal-box:hover {
+    background-color: rgba(9, 9, 9, 0.9); /* Darken background slightly on hover */
+    border-color: var(--hawk-lavender); /* Change the border color on hover */
+    color: var(--hawk-lavender); /* Change the text color to lavender */
+}
+
+.terminal-box-static {
+    background-color: var(--hawk-black);
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-family: "Courier New", Courier, monospace;
+    overflow-x: auto;
+    font-size: 1.1rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: default;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+/* No hover effects for static terminal box */
+.terminal-box-static:hover {
+    background-color: var(--hawk-black);
+    border-color: transparent;
+    color: white;
+    cursor: default;
+}
+
+@media (max-width: 768px) {
+    /* Target the key features card specifically in the getting started section */
+    #getting-started .card {
+        margin-top: 3rem;  /* Increase top margin on mobile */
+    }
+
+        /* New navbar mobile styles */
+    .navbar-toggler-icon {
+        width: 1.5em;
+        height: 1.5em;
+    }
+    
+    .navbar-collapse {
+        background-color: rgba(23, 22, 22, 0.98);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 0.5rem;
+        
+        /* Original:
+           transition: transform 0.15s ease-out, opacity 0.15s ease-out; 
+        */
+        
+        /* Options: 
+           1) Remove them entirely:
+             transition: none;
+      
+           2) Reduce them to something very short:
+             transition: transform 0.05s ease-out, opacity 0.05s ease-out;
+        */
+        transition: transform 0.0s ease-out, opacity 0.03s ease-out;
+      }
+}

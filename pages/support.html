@@ -1,0 +1,257 @@
+<!-- support.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hawk - Support</title>
+
+  <!-- google analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPNR1QR0MG"></script>
+  <script src="../assets/js/google-analytics.js" defer></script>
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome (optional if needed) -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    rel="stylesheet"
+  />
+  <!-- Global Styles (styles.css) -->
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+          <a class="navbar-brand" href="../../index.html">
+              <img src="../../assets/images/hawk_logo_no_background.png" alt="Hawk Logo" class="navbar-logo me-2" style="height: 40px;">
+              Hawk
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                      <ul class="navbar-nav ms-auto">
+                        
+                        <!-- user-guide Dropdown -->
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button"
+                             data-bs-toggle="dropdown" aria-expanded="false">
+                            User Guide
+                          </a>
+                          <ul class="dropdown-menu">
+                            <!-- Main docs page -->
+                            <li>
+                              <a class="dropdown-item" href="./user-guide/overview.html">
+                                Overview
+                              </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <!-- Subsections -->
+                            <li>
+                              <a class="dropdown-item" href="./user-guide/installation.html">
+                                Installation
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="./user-guide/permissions-setup.html">
+                                Permissions Setup
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="./user-guide/tenant-investigation.html">
+                                Tenant Investigation
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="./user-guide/user-investigation.html">
+                                User Investigation
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="./user-guide/troubleshooting.html">
+                                Troubleshooting
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="tutorials.html">Tutorials</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="blog.html">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="support.html">Support</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./about.html">About</a>
+              </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container text-center">
+      <h1 class="highlight-word">Need Help with Hawk?</h1>
+      <p class="lead">
+        We're here to assist you with any issues, questions, or suggestions you may have.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Support Cards Section -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">How Can We Help?</h2>
+      <div class="row g-4">
+        <!-- Feature Request Card -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+              <i class="fas fa-lightbulb feature-icon mb-3" style="font-size:2rem;"></i>
+              <h5 class="card-title">Request a Feature</h5>
+              <p class="card-text">
+                Have an idea to improve Hawk? Let us know by submitting a feature request.
+              </p>
+              <a
+                href="https://github.com/T0pCyber/hawk/issues/new?template=01_feature_request_form.yml"
+                class="btn btn-outline-primary"
+                target="_blank"
+                >Submit Feature Request</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Bug Fix Card -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+              <i class="fas fa-bug feature-icon mb-3" style="font-size:2rem;"></i>
+              <h5 class="card-title">Submit a Bug</h5>
+              <p class="card-text">
+                Found a bug or unexpected behavior? Help us improve Hawk by reporting it.
+              </p>
+              <a
+                href="https://github.com/T0pCyber/hawk/issues/new?template=02_bug_report_form.yml"
+                class="btn btn-outline-primary"
+                target="_blank"
+                >Submit Bug Report</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Ask a Question Card -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+              <i class="fas fa-question-circle feature-icon mb-3" style="font-size:2rem;"></i>
+              <h5 class="card-title">Ask a Question</h5>
+              <p class="card-text">
+                Need more information? Feel free to ask our team via our GitHub Question Issue Form.
+              </p>
+              <a
+                href="https://github.com/T0pCyber/hawk/issues/new?template=04_question_form.yml"
+                class="btn btn-outline-primary"
+                >Contact the Hawk Team</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</br>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h5>About Hawk</h5>
+          <p>
+            A community-driven PowerShell module for Microsoft Cloud security analysis and
+            forensic investigation.
+          </p>
+        </div>
+        <div class="col-lg-3">
+          <h5>Links</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="https://github.com/T0pCyber/hawk" target="_blank"
+                >GitHub</a
+              >
+            </li>
+            <li>
+              <a href="user-guide/overview.html">User Guide</a>
+            </li>
+            <li>
+              <a href="https://github.com/T0pCyber/hawk/discussions" target="_blank"
+                >Community</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h5>Resources</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a
+                href="https://www.powershellgallery.com/packages/Hawk"
+                target="_blank"
+                >PowerShell Gallery</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/T0pCyber/hawk/issues" target="_blank"
+                >Report Issues</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/T0pCyber/hawk/blob/master/LICENSE"
+                target="_blank"
+                >License</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr class="mt-4 mb-4" />
+      <div class="row">
+        <div class="col-12 text-center">
+          <p class="text-center disclaimer mb-0">
+            &copy; <span id="year"></span> Hawk Project.
+          </p>
+          <p class="disclaimer mb-0">
+            Hawk is an open-source project and is not affiliated with Microsoft
+            Corporation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"
+  ></script>
+  <script src="../assets/js/script.js"></script>
+  <script>
+    // Simple year auto-update
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

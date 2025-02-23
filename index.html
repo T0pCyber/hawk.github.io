@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawk - Modern Cloud Forensics</title>
+
+    <!-- google analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPNR1QR0MG"></script>
+    <script src="./assets/js/google-analytics.js" defer></script>
+
+    
+    <!-- External CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <img src="../../assets/images/hawk_logo_no_background.png" alt="Hawk Logo" class="navbar-logo me-2" style="height: 40px;">
+                Hawk
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                          
+                          <!-- user-guide Dropdown -->
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                              User Guide
+                            </a>
+                            <ul class="dropdown-menu">
+                              <!-- Main docs page -->
+                              <li>
+                                <a class="dropdown-item" href="./pages/user-guide/overview.html">
+                                  Overview
+                                </a>
+                              </li>
+                              <li><hr class="dropdown-divider"></li>
+                              <!-- Subsections -->
+                              <li>
+                                <a class="dropdown-item" href="./pages/user-guide/installation.html">
+                                  Installation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="./pages/user-guide/permissions-setup.html">
+                                  Permissions Setup
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="./pages/user-guide/tenant-investigation.html">
+                                  Tenant Investigation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="./pages/user-guide/user-investigation.html">
+                                  User Investigation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="./pages/user-guide/troubleshooting.html">
+                                  Troubleshooting
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pages/tutorials.html">Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pages/blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./pages/support.html">Support</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./pages/about.html">About</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container text-center">
+            <img src="./assets/images/hawk_logo_no_background.png" alt="Hawk Logo" class="img-fluid mb-4 logo-circle">
+            <h1 class="display-4 mb-4">Cloud Forensics with Hawk</h1>
+            <p class="lead mb-5">Hunt and Respond to Microsoft Cloud Threats with Open-Source Precision</p>
+            <a href="https://www.powershellgallery.com/packages/HAWK" class="btn btn-primary btn-lg">Install from PS Gallery</a>
+            <a href="https://github.com/T0pCyber/hawk" class="btn btn-outline-light btn-lg" target="_blank">View on GitHub</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5" id="about">
+        <div class="container">
+            <h2 class="text-center mb-5">What Hawk Can Do</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card feature-card shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-search feature-icon"></i>
+                            <h5 class="card-title">Data Collection</h5>
+                            <p class="card-text">Efficiently gather forensic data from Microsoft cloud environments with automated collection processes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-shield-alt feature-icon"></i>
+                            <h5 class="card-title">Security Analysis</h5>
+                            <p class="card-text">Analyze security configurations, audit logs, and user activities across your Microsoft cloud environment.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-file-export feature-icon"></i>
+                            <h5 class="card-title">Export & Report</h5>
+                            <p class="card-text">Generate both easy-to-read CSV reports and structured JSON data for advanced analysis and SIEM integration.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section class="bg-light py-5" id="getting-started">
+        <div class="container">
+            <h2 class="text-center mb-5">Getting Started</h2>
+            <div class="row align-items-center mb-4">
+                <div class="col-lg-6">
+                    <h3>Installation</h3>
+                    <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="Install-Module -Name Hawk">
+                        <code>Install-Module -Name Hawk</code>
+                    </div>
+                </br>
+                    <p>Hawk is available through the PowerShell Gallery. Simply open a PowerShell terminal and run the command above to get started.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Key Features</h4>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Tenant and User based investigations</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Automated Microsoft cloud log collection</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Comprehensive audit logging</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Provides actionable insights</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="pages/tutorials.html" class="btn btn-primary">Watch the Tutorials</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Guide Preview -->
+    <section class="py-5" id="user-guide">
+        <div class="container">
+            <h2 class="text-center mb-5">User Guide</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h4>Tenant-Based Commands</h4>
+                    <p>Commands that start with <code>Verb-HawkTenant</code> analyze tenant-wide settings:</p>
+                    <ul>
+                        <li>Tenant configuration settings</li>
+                        <li>Administrator role assignments</li>
+                        <li>Application permissions and consent grants</li>
+                        <li>User enumeration and access patterns</li>
+                        <li>Microsoft 365 admin activities</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <h4>User-Based Commands</h4>
+                    <p>Commands that start with <code>Verb-HawkUser</code> focus on individual user investigation:</p>
+                    <ul>
+                        <li>Authentication history</li>
+                        <li>Mailbox configuration</li>
+                        <li>Inbox rules</li>
+                        <li>Email item access history</li>
+                        <li>Mobile device access history</li>
+               
+                    </ul>
+                </div>
+
+            </div>
+            <div class="text-center">
+                <a href="pages/user-guide/overview.html" class="btn btn-primary">Full User Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="bg-light py-5" id="contribute">
+        <div class="container">
+            <h2 class="text-center mb-5">Contribute</h2>
+            <p>Everyone is welcome to contribute to this tool. The goal of the Hawk tool 
+                is to be a community lead tool and provides security support professionals with the tools they 
+                need to quickly and easily gather data from the Microsoft cloud. Whether its maintaining this web page,
+            submitting feature requests / bug fixes, or laying down some PowerShell code, we welcome you all! </p>
+            <br>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Start Coding!</h5>
+                            <p class="card-text">Select an <a href="https://github.com/T0pCyber/hawk/issues">open issue</a> and start contributing today!
+                                For questions on the project, contact the Hawk
+                                dev team via the GitHub questions form.
+                            </p>
+                            <a href="https://github.com/T0pCyber/hawk/issues/new?template=04_question_form.yml" class="btn btn-outline-primary" target="_blank">Ask Question</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Request a Feature</h5>
+                            <p class="card-text">Have ideas for improvement? Submit a feature request and we will get right on it!</p>
+                            <br/>
+                            <a href="https://github.com/T0pCyber/hawk/issues/new?template=01_feature_request_form.yml" class="btn btn-outline-primary" target="_blank">Request Feature</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Submit a Bug Fix</h5>
+                            <p class="card-text">Spotted a bug? Let us know so we can patch up Hawk!</p>
+                            <br/>
+                            <a href="https://github.com/T0pCyber/hawk/issues/new?template=02_bug_report_form.yml" class="btn btn-outline-primary" target="_blank">Submit Bug</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5>About Hawk</h5>
+                    <p>A community-driven PowerShell module for Microsoft Cloud security analysis and forensic investigation.</p>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://github.com/T0pCyber/hawk">GitHub</a></li>
+                        <li><a href="pages/user-guide/overview.html">User Guide</a></li>
+                        <li><a href="https://github.com/T0pCyber/hawk/discussions">Community</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.powershellgallery.com/packages/Hawk">PowerShell Gallery</a></li>
+                        <li><a href="https://github.com/T0pCyber/hawk/issues">Report Issues</a></li>
+                        <li><a href="https://github.com/T0pCyber/hawk/blob/master/LICENSE">License</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-12 text-center">                    
+                    <p class="text-center disclaimer mb-0">
+                        &copy; <span id="year"></span> Hawk Project.
+                      </p>                    <p class="disclaimer mb-0">Hawk is an open-source project and is not affiliated with Microsoft Corporation.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Simple year auto-update
+        document.getElementById('year').textContent = new Date().getFullYear();
+      </script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!-- installation.html -->
+<!-- 
+This page includes:
+- PowerShell requirements
+- Module dependencies
+- Installation steps
+- Permission requirements
+- Initial configuration
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hawk - Installation</title>
+
+  <!-- google analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPNR1QR0MG"></script>
+  <script src="../../assets/js/google-analytics.js" defer></script>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+    <!-- Custom JavaScript -->
+  <script src="../../assets/js/script.js"></script>
+  <!-- Font Awesome (optional if needed) -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    rel="stylesheet"
+  />
+  <!-- Global Styles (styles.css) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <!-- Doc-Specific Styles (user-guide.css) -->
+  <link rel="stylesheet" href="../../assets/css/user-guide.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <img src="../../assets/images/hawk_logo_no_background.png" alt="Hawk Logo" class="navbar-logo me-2" style="height: 40px;">
+                Hawk
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                          
+                          <!-- user-guide Dropdown -->
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                              User Guide
+                            </a>
+                            <ul class="dropdown-menu">
+                              <!-- Main docs page -->
+                              <li>
+                                <a class="dropdown-item" href="overview.html">
+                                  Overview
+                                </a>
+                              </li>
+                              <li><hr class="dropdown-divider"></li>
+                              <!-- Subsections -->
+                              <li>
+                                <a class="dropdown-item" href="installation.html">
+                                  Installation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="permissions-setup.html">
+                                  Permissions Setup
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="tenant-investigation.html">
+                                  Tenant Investigation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="user-investigation.html">
+                                  User Investigation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="troubleshooting.html">
+                                  Troubleshooting
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../tutorials.html">Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../support.html">Support</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../about.html">About</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+  <!-- user-guide Banner -->
+  <section class="user-guide-hero">
+    <div class="container text-center">
+      <h1><span class="highlight-word">User Guide:</span></h1>
+      <h2><span class="highlight-word">Installing Hawk</span></h2>
+    </div>
+</section>
+
+
+<!-- Main Doc Content -->
+<div class="container py-5">
+  <!-- Prerequisites Section -->
+  <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Prerequisites</h2>
+      <div class="bg-gray-50 rounded-lg p-6 mb-8">
+          <p>Before installing Hawk, ensure your environment meets the following requirements:</p>
+          <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
+              <ul class="list-disc pl-6 space-y-3">
+                  <li><strong>System Requirements:</strong> Windows operating system with administrator access</li>
+                  <li><strong>Network Requirements:</strong> Connectivity to the following sites & services:</li>
+                  <ul class="list-none pl-6 mt-2">
+                      <li> PowerShell Gallery</li>
+                      <li> Graph API</li>
+                      <li> Microsoft 365 services</li>
+                  </ul>
+                  <li><strong>PowerShell Edition:</strong> Desktop or Core</li>
+                  <li><strong>PowerShell Version:</strong> PowerShell 5.0 or above </li>
+              </ul>
+          </div>
+          </br>
+          <p>To check your PowerShell version, run:</p>
+          <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="$PSVersionTable">
+              <code>$PSVersionTable</code>
+          </div>
+      </div>
+  </section>
+
+  <!-- Installation Steps Section -->
+  <section class="mb-12">
+      <br>
+      <hr>
+      <br>
+      <h2 class="text-3xl font-bold mb-6">Installation Steps</h2>
+      <div class="space-y-6">
+          <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="text-xl font-semibold mb-4">1. Prepare PowerShell Environment</h3>
+              <p>Run the following command in a PowerShell session with administrator privileges to set the execution policy:</p>
+              <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="Set-ExecutionPolicy RemoteSigned">
+                  <code>Set-ExecutionPolicy RemoteSigned</code>
+              </div>
+              <p class="mt-3 text-gray-600">This command allows scripts to run securely on your system.</p>
+          </div>
+          <br>
+
+          <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="text-xl font-semibold mb-4">2. Install Hawk Module</h3>
+              <p>To install the Hawk module from the PowerShell Gallery, use this command:</p>
+              <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="Install-Module -Name Hawk">
+                  <code>Install-Module -Name Hawk</code>
+              </div>
+              <p class="mt-3 text-gray-600">This will download and install the Hawk module on your system.</p>
+          </div>
+          <br>
+
+          <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="text-xl font-semibold mb-4">3. Required Dependencies</h3>
+              <p>When you install Hawk, it automatically handles all required dependencies. All these modules 
+              enable connectivity to Microsoft 365 services and are essential for Hawk's functionality. The 
+              following modules will be installed your system:</p>
+              <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
+                  <ul class="list-disc pl-6 space-y-2">
+                      <li>PSFramework (v1.12.346 or later)</li>
+                      <li>PSAppInsights (v0.9.6 or later)</li>
+                      <li>ExchangeOnlineManagement (v3.0.0 or later)</li>
+                      <li>Microsoft.Graph.Authentication (v2.25.0 or later)</li>
+                      <li>Microsoft.Graph.Identity.DirectoryManagement (v2.25.0 or later)</li>
+                      <li>Microsoft.Graph.Users (v2.25.0 or later)</li>
+                      <li>Microsoft.Graph.Applications (v2.25.0 or later)</li>
+                      <li>Microsoft.Graph.Identity.Signins (v2.25.0 or later)</li>
+                      <li>Microsoft.Graph.Reports (v2.25.0 or later)</li>
+                  </ul>
+              </div>
+          </div>
+          <br>
+          <br>
+
+          <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="text-xl font-semibold mb-4">4. Import Hawk Module</h3>
+              <p>To load the Hawk module in your current PowerShell session, run:</p>
+              <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="Import-Module Hawk">
+                  <code>Import-Module Hawk</code>
+              </div>
+              <p class="mt-3 text-gray-600">This command loads the Hawk module, making all its commands available for use in your current session.</p>
+          </div>
+      </div>
+  </section>
+
+  <!-- Verification & Support Section -->
+  <section class="mb-12">
+      <br>
+      <hr>
+      <br>
+      <h2 class="text-3xl font-bold mb-6">Installation Verification</h2>
+      <div class="space-y-6">
+          <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="text-xl font-semibold mb-4">1. Verify Installation</h3>
+              <p>To verify your installation, open a new PowerShell session and run:</p>
+              <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="Get-Module Hawk -ListAvailable">
+                  <code>Get-Module Hawk -ListAvailable</code>
+              </div>
+              <p class="mt-4 text-gray-600">This command should display information about the installed Hawk version.</p>
+          </div>
+          <br>
+          <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="text-xl font-semibold mb-4">2. Available Commands</h3>
+              <p>To see all available commands in Hawk, run:</p>
+              <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="Get-Command -Module Hawk">
+                  <code>Get-Command -Module Hawk</code>
+              </div>
+              <p class="mt-3 text-gray-600">This will list all functions available in Hawk. While most of these functions are automatically executed during tenant or user investigations, they can also be run individually for targeted analysis.</p>
+          </div>
+          <br>
+          <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="text-xl font-semibold mb-4">3. Help Documentation</h3>
+              <p>Hawk provides detailed help documentation for all commands. To view help for any command, use Get-Help followed by the command name. For example:</p>
+              
+              <h4 class="mt-4">View help for tenant investigation:</h4>
+              <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="Get-Help Start-HawkTenantInvestigation">
+                  <code>Get-Help Start-HawkTenantInvestigation</code>
+              </div>
+              <br>
+              
+              <h4 class="mt-4">View help for user investigation:</h4>
+              <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="Get-Help Start-HawkUserInvestigation">
+                  <code>Get-Help Start-HawkUserInvestigation</code>
+              </div>
+          </div>
+      </div>
+      <br>
+  </section>
+  <br>
+  <hr>
+<br>
+
+<!-- Support Section -->
+<section class="mb-12">
+  <h2 class="text-3xl font-bold mb-6">Additional Support</h2>
+  <div class="bg-gray-50 rounded-lg p-6">
+      <p>If you encounter installation issues or need assistance:</p>
+      <ul class="list-disc pl-6 space-y-2">
+          <li>Visit our <a href="../support.html" class="text-blue-600 hover:text-blue-800">support page</a> to submit an issue or to contact the Hawk team</li>
+          <li>Check the <a href="troubleshooting.html" class="text-blue-600 hover:text-blue-800">troubleshooting guide</a> for common issues and their solutions</li>
+      </ul>
+  </div>
+</section>
+<br>
+<hr>
+<br>
+
+
+<section class="mb-5">
+  <h2 class="text-center">Spread Your Wings</h2>
+  </br>
+  <div class="row g-4">
+    <!-- Go Back Card -->
+    <div class="col-md-6">
+      <div class="card user-guide-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title">Go Back</h5>
+          <p class="card-text">Review the previous section: Hawk Overview.</p>
+          <a href="overview.html" class="btn btn-outline-primary">Circle Back</a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Up Next Card -->
+    <div class="col-md-6">
+      <div class="card user-guide-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title">Up Next</h5>
+          <p class="card-text">Enable Hawk to hunt, by configuring cloud permissions.</p>
+          <a href="permissions-setup.html" class="btn btn-primary">Fly Ahead</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <hr/>
+
+  </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6">
+                  <h5>About Hawk</h5>
+                  <p>A community-driven PowerShell module for Microsoft Cloud security analysis and forensic investigation.</p>
+              </div>
+              <div class="col-lg-3">
+                  <h5>Links</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="https://github.com/T0pCyber/hawk">GitHub</a></li>
+                      <li><a href="./overview.html">User Guide</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/discussions">Community</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-3">
+                  <h5>Resources</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="https://www.powershellgallery.com/packages/Hawk">PowerShell Gallery</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/issues">Report Issues</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/blob/master/LICENSE">License</a></li>
+                  </ul>
+              </div>
+          </div>
+          <hr class="mt-4 mb-4">
+          <div class="row">
+              <div class="col-12 text-center">                    
+                  <p class="text-center disclaimer mb-0">
+                      &copy; <span id="year"></span> Hawk Project.
+                    </p>                    <p class="disclaimer mb-0">Hawk is an open-source project and is not affiliated with Microsoft Corporation.</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"
+  ></script>
+
+  <script>
+    // Simple year auto-update
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

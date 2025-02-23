@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hawk - Overview</title>
+
+  <!-- google analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPNR1QR0MG"></script>
+  <script src="../../assets/js/google-analytics.js" defer></script>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome (optional if needed) -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    rel="stylesheet"
+  />
+  <!-- Global Styles (styles.css) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <!-- Doc-Specific Styles (user-guide.css) -->
+  <link rel="stylesheet" href="../../assets/css/user-guide.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <img src="../../assets/images/hawk_logo_no_background.png" alt="Hawk Logo" class="navbar-logo me-2" style="height: 40px;">
+                Hawk
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                          
+                          <!-- user-guide Dropdown -->
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                              User Guide
+                            </a>
+                            <ul class="dropdown-menu">
+                              <!-- Main docs page -->
+                              <li>
+                                <a class="dropdown-item" href="overview.html">
+                                  Overview
+                                </a>
+                              </li>
+                              <li><hr class="dropdown-divider"></li>
+                  
+                              <!-- Subsections -->
+                              <li>
+                                <a class="dropdown-item" href="installation.html">
+                                  Installation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="permissions-setup.html">
+                                  Permissions Setup
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="tenant-investigation.html">
+                                  Tenant Investigation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="user-investigation.html">
+                                  User Investigation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="troubleshooting.html">
+                                  Troubleshooting
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../tutorials.html">Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../support.html">Support</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../about.html">About</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+  <!-- User Guide Banner -->
+  <section class="user-guide-hero">
+    <div class="container text-center">
+      <h1><span class="highlight-word">User Guide:</span></h1>
+      <h2><span class="highlight-word">Hawk Overview</span></h2>
+    </div>
+</section>
+
+
+  <!-- Main Doc Content -->
+  <div class="container container-main-content py-5">
+    <section class="mb-5">
+      <h2>Core Concepts</h2>
+      <div class="bg-white rounded-lg p-4 mt-3 shadow-sm space-y-6">
+          <div>
+              <h3>Description</h3>
+              <p>
+                  Hawk is a free, open-source PowerShell application that streamlines the collection of forensic data 
+                  from Microsoft cloud environments. Designed primarily for security professionals, incident responders, 
+                  and administrators, Hawk automates the gathering of critical log data across Microsoft services, with a 
+                  focus on Microsoft 365 (M365) and Microsoft Entra ID. 
+              </p>
+          </div>
+          <div>
+              <h3>Purpose</h3>
+              <p>
+                  The tool's primary function is to efficiently collect and export comprehensive log data that would otherwise 
+                  require multiple manual queries across different web interfaces. Hawk streamlines data collection compared 
+                  to manually running individual queries through these interfaces, freeing up those resources for other administrative tasks. 
+              </p>
+          </div>
+          <div>
+              <h3>What Hawk is and isn't</h3>
+              <p>
+                  While Hawk includes basic analysis capabilities to flag potential items of interest (such as suspicious 
+                  mail forwarding rules, over-privileged applications, or risky user activities), it is fundamentally a 
+                  data collection tool rather than an automated threat detection system. 
+              </p>
+          </div>
+      </div>
+  </section>
+
+  <hr/>
+
+  <section class="mb-5">
+      <h2>Investigation Types</h2>
+      <div class="bg-white rounded-lg p-4 mt-3 shadow-sm space-y-6">
+          <p>
+              Hawk offers two main "investigation" approaches, Tenant and User investigations, each with dedicated cmdlets.
+              These two workflows complement each other - start broad with tenant investigations to identify areas of
+              concern, then drill down with focused user investigations where needed. 
+          </p>
+          <div>
+              <h3>Tenant Investigations</h3>
+              <p>
+                  Examines broader Microsoft Cloud tenant settings, audit logs, security configurations, and domain activities. 
+                  This investigation type is faster to execute and provides an excellent starting point by identifying 
+                  suspicious patterns, administrative changes, and potential security issues across your entire environment. 
+                  Use this to quickly spot anomalies that may require deeper investigation.
+              </p>
+          </div>
+          <div>
+              <h3>User Investigations</h3>
+              <p>
+                  Performs deep-dive analysis into individual user accounts, mailbox configurations, inbox rules, and 
+                  login histories. While more time-intensive due to the depth of data collection, these investigations 
+                  are crucial when examining potentially compromised accounts or investigating suspicious email behavior. 
+                  User investigations pull detailed historical data and are particularly valuable after a tenant investigation 
+                  has identified accounts of interest.
+              </p>
+          </div>
+      </div>
+  </section>
+
+  <hr/>
+
+  <section class="mb-5">
+      <h2>Running Modes</h2>
+      <div class="bg-white rounded-lg p-4 mt-3 shadow-sm space-y-6">
+          <p>Hawk provides flexible execution options to suit different operational needs:</p>
+          <div>
+              <h3>Interactive Mode</h3>
+              <p>
+                  When run without parameters, Hawk operates in interactive mode, guiding you through the investigation process:
+              </p>
+              <ul class="list-disc pl-6 space-y-2">
+                  <li>Prompts for investigation date ranges</li>
+                  <li>Assists with output location selection</li>
+                  <li>Provides real-time progress updates</li>
+                  <li>Ideal for ad-hoc investigations and learning the tool</li>
+              </ul>
+          </div>
+          <div>
+              <h3>Non-Interactive Mode</h3>
+              <p>
+                  For automated operations or scripted tasks, Hawk accepts command-line parameters:
+              </p>
+              <ul class="list-disc pl-6 space-y-2">
+                  <li>Specify date ranges and output paths via parameters</li>
+                  <li>Suitable for scheduled tasks and automation</li>
+                  <li>Enables integration with other security tools</li>
+                  <li>Perfect for batch processing multiple investigations</li>
+              </ul>
+          </div>
+          <div>
+              <h3>Individual Functions</h3>
+              <p>
+                  Beyond full investigations, any Hawk cmdlet can be run independently:
+              </p>
+              <ul class="list-disc pl-6 space-y-2">
+                  <li>Target specific data collection needs</li>
+                  <li>Combine functions for custom investigation workflows</li>
+                  <li>Comprehensive help available via Get-Help [cmdlet-name]</li>
+              </ul>
+          </div>
+      </div>
+      <br>
+      <hr>
+      <section class="mb-12">
+        <h2>Understanding Hawk Output</h2>
+        <div class="bg-white rounded-lg p-4 mt-3 shadow-sm space-y-6">
+            <p>
+                Hawk organizes investigation results into a structured directory hierarchy, 
+                with separate folders for tenant-wide and user-specific data. All outputs 
+                are designed to support both human analysis and automated processing.
+            </p>
+    
+            <h3>Directory Structure</h3>
+            <div class="terminal-box-static">
+    <pre>
+    📂 [Investigation Root]
+    ├── 📂 Tenant/
+    │   ├── AdminAuditLogConfig.csv
+    │   ├── OrgConfig.csv
+    │   ├── _Investigate_*.csv
+    │   └── [other tenant files]
+    ├── 📂 [user1@domain.com]/
+    │   ├── Mailbox_Info.csv
+    │   ├── InboxRules.csv
+    │   ├── _Investigate_*.csv
+    │   └── [other user files]
+    └── 📂 [user2@domain.com]/
+        └── [similar structure]</pre>
+            </div>
+            <br>
+            <br>
+            <h3>File Formats</h3>
+            <p>
+                Hawk exports data in multiple formats to support different analysis workflows:
+            </p>
+            <ul class="list-group mb-4">
+                <li class="list-group-item">
+                    <strong>CSV:</strong> Provides human-readable format for quick analysis and spreadsheet compatibility. Perfect for initial triage and quick analysis.
+                </li>
+                <li class="list-group-item">
+                    <strong>JSON:</strong> Offers structured data format ideal for programmatic analysis, SIEM integration, and custom processing scripts.
+                </li>
+            </ul>
+            <br>
+            <h3>Investigation Flags</h3>
+            <p>
+                Files prefixed with <strong>"_Investigate_"</strong> contain potentially suspicious findings that warrant further review. These files highlight activities or configurations that could indicate security concerns. The upcoming Tenant Investigation and User Investigation sections provide detailed documentation on which functions generate these investigation flags and how to interpret their findings effectively.
+            </p>
+            <br>
+            <h3>Simple View Files</h3>
+            <p>
+                Many Hawk functions retrieve data from the Unified Audit Log, which contains complex nested JSON structures that can be difficult to analyze in spreadsheet applications. To make this data more accessible, Hawk provides two views of the same data:
+            </p>
+            <ul>
+                <li>
+                    Files prefixed with <strong>"Simple_"</strong> contain flattened, human-readable data optimized for quick analysis in spreadsheet applications, with nested structures simplified into a tabular format
+                </li>
+                <li>
+                    Files without the "Simple_" prefix contain the complete, raw data structure - ideal for detailed forensic analysis or when you need access to all original fields and relationships
+                </li>
+            </ul>
+        </div>
+    </section>
+    <br>
+    <br>
+
+
+    <hr/>
+    <br>
+    <section class="mb-5">
+      <h2 class="text-center">Spread Your Wings</h2>
+      <br>
+      <div class="row g-4 d-flex justify-content-center">
+        <!-- Up Next Card -->
+        <div class="col-md-6">
+          <div class="card user-guide-card shadow-sm h-100 mx-auto">
+            <div class="card-body text-center">
+              <h5 class="card-title">Up Next</h5>
+              <p class="card-text">Prepare for flight by installing Hawk with ease.</p>
+              <a href="installation.html" class="btn btn-primary">Fly Ahead</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6">
+                  <h5>About Hawk</h5>
+                  <p>A community-driven PowerShell module for Microsoft Cloud security analysis and forensic investigation.</p>
+              </div>
+              <div class="col-lg-3">
+                  <h5>Links</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="https://github.com/T0pCyber/hawk">GitHub</a></li>
+                      <li><a href="./overview.html">User Guide</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/discussions">Community</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-3">
+                  <h5>Resources</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="https://www.powershellgallery.com/packages/Hawk">PowerShell Gallery</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/issues">Report Issues</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/blob/master/LICENSE">License</a></li>
+                  </ul>
+              </div>
+          </div>
+          <hr class="mt-4 mb-4">
+          <div class="row">
+              <div class="col-12 text-center">                    
+                  <p class="text-center disclaimer mb-0">
+                      &copy; <span id="year"></span> Hawk Project.
+                    </p>                    <p class="disclaimer mb-0">Hawk is an open-source project and is not affiliated with Microsoft Corporation.</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"
+  ></script>
+
+  <script>
+    // Simple year auto-update
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

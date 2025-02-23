@@ -1,0 +1,728 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hawk - Tenant Investigation</title>
+
+  <!-- google analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPNR1QR0MG"></script>
+  <script src="../../assets/js/google-analytics.js" defer></script>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+    <!-- Custom JavaScript -->
+  <script src="../../assets/js/script.js"></script>
+  <!-- Font Awesome (optional if needed) -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    rel="stylesheet"
+  />
+  <!-- Global Styles (styles.css) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <!-- Doc-Specific Styles (user-guide.css) -->
+  <link rel="stylesheet" href="../../assets/css/user-guide.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <img src="../../assets/images/hawk_logo_no_background.png" alt="Hawk Logo" class="navbar-logo me-2" style="height: 40px;">
+                Hawk
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                          
+                          <!-- user-guide Dropdown -->
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                              User Guide
+                            </a>
+                            <ul class="dropdown-menu">
+                              <!-- Main docs page -->
+                              <li>
+                                <a class="dropdown-item" href="overview.html">
+                                  Overview
+                                </a>
+                              </li>
+                              <li><hr class="dropdown-divider"></li>
+                  
+                              <!-- Subsections -->
+                              <li>
+                                <a class="dropdown-item" href="installation.html">
+                                  Installation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="permissions-setup.html">
+                                  Permissions Setup
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="tenant-investigation.html">
+                                  Tenant Investigation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="user-investigation.html">
+                                  User Investigation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="troubleshooting.html">
+                                  Troubleshooting
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../tutorials.html">Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../support.html">Support</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../about.html">About</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+  <!-- user-guide Banner -->
+  <section class="user-guide-hero">
+    <div class="container text-center">
+        <h1><span class="highlight-word">User Guide:</span></h1>
+        <h2><span class="highlight-word">Tenant Investigation</span></h2>
+    </div>
+</section>
+
+<!-- Main Doc Content -->
+<div class="container py-5">
+    <!-- Overview Section -->
+    <section class="mb-12">
+        <h2>Overview</h2>
+        <div class="bg-white rounded-lg p-4 mt-3 shadow-sm space-y-6">
+            <p>
+                <code>Start-HawkTenantInvestigation</code> is a comprehensive cmdlet that automates the collection and analysis of tenant-wide security data. 
+                It executes multiple specialized functions to gather information about tenant configuration, security settings, and potential security issues.
+            </p>
+
+                <p class="text-blue-700">
+                    <strong>Note:</strong> A tenant investigation can take significant time to complete depending on the date range and amount of data. 
+                    Consider running an initial investigation with a shorter timeframe to gauge execution time.
+                </p>
+
+        </div>
+    </section>
+
+    <br>
+    <!-- Interactive Mode Section -->
+    <hr/>
+    
+    <section class="mb-12">
+        <h2>Interactive Mode</h2>
+        <div class="bg-white rounded-lg p-4 mt-3 shadow-sm space-y-6">
+            <p>Running Start-HawkTenantInvestigation without parameters starts interactive mode:</p>
+            <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="Start-HawkTenantInvestigation">
+                <code>Start-HawkTenantInvestigation</code>
+            </div>
+        </br>
+            <p>The cmdlet will guide you through:</p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>Selecting an output directory for investigation results</li>
+                <li>Choosing a date range (last X days or specific start/end dates)</li>
+                <li>Confirming settings before proceeding</li>
+            </ul>
+            <p>Interactive mode is recommended for first-time users and ad-hoc investigations.</p>
+        </div>
+    </section>
+    <br>
+    <!-- Non-Interactive Mode Section -->
+    <hr/>
+    <section class="mb-12">
+        <h2>Non-Interactive Mode</h2>
+        <div class="bg-white rounded-lg p-4 mt-3 shadow-sm space-y-6">
+            <p>For automated operations, run Start-HawkTenantInvestigation with any of the following parameters:</p>
+            <br>
+            <h3>Available Parameters</h3>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="min-width: 150px;">Parameter</th>
+                            <th style="min-width: 100px;">Type</th>
+                            <th style="min-width: 100px;">Required</th>
+                            <th style="min-width: 300px;">Description</th>
+                            <th style="min-width: 150px;">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>StartDate</td>
+                            <td>DateTime</td>
+                            <td>No*</td>
+                            <td>Beginning of investigation period</td>
+                            <td>'01/01/2024'</td>
+                        </tr>
+                        <tr>
+                            <td>EndDate</td>
+                            <td>DateTime</td>
+                            <td>No*</td>
+                            <td>End of investigation period</td>
+                            <td>'01/31/2024'</td>
+                        </tr>
+                        <tr>
+                            <td>DaysToLookBack</td>
+                            <td>Integer</td>
+                            <td>No*</td>
+                            <td>Number of days to investigate (1-365)</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>FilePath</td>
+                            <td>String</td>
+                            <td>Yes</td>
+                            <td>Output directory for investigation results</td>
+                            <td>'C:\HawkOutput'</td>
+                        </tr>
+                        <tr>
+                            <td>SkipUpdate</td>
+                            <td>Switch</td>
+                            <td>No</td>
+                            <td>Bypass Hawk update check</td>
+                            <td>-SkipUpdate</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-muted mt-2">* Either StartDate/EndDate pair OR DaysToLookBack must be specified</p>
+            <br>
+            <h3>Examples:</h3>
+            <!-- Example 1 -->
+            <h4>Quick 30-Day Investigation</h4>
+            <p class="text-muted">Look back 30 days from today, saving results to C:\HawkOutput while skipping the update check:</p>
+            <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="Start-HawkTenantInvestigation -DaysToLookBack 30 -FilePath 'C:\HawkOutput' -SkipUpdate">
+                <code>Start-HawkTenantInvestigation -DaysToLookBack 30 -FilePath 'C:\HawkOutput' -SkipUpdate</code>
+            </div>
+            <br>
+
+            <!-- Example 2 -->
+            <h4>Date Range Investigation</h4>
+            <p class="text-muted">Investigate a specific date range (January 2024) and output to a timestamped folder:</p>
+            <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="Start-HawkTenantInvestigation -StartDate '01/01/2024' -EndDate '01/31/2024' -FilePath 'C:\Investigations\Jan2024'">
+                <code>Start-HawkTenantInvestigation -StartDate '01/01/2024' -EndDate '01/31/2024' -FilePath 'C:\Investigations\Jan2024'</code>
+            </div>
+            <br>
+        </div>
+    </section>
+
+    <br>
+    <!-- Functions Section -->
+    <hr/>
+    <br>
+
+    
+<!-- Functions Section -->
+<!-- Functions Table Section -->
+<div class="table-container">
+    <section class="mb-12">
+        <div class="collapsible-header"
+             data-bs-toggle="collapse"
+             data-bs-target="#investigationFunctions"
+             aria-expanded="false">
+            <i class="fas fa-chevron-right collapsible-arrow"></i>
+            <div class="d-flex align-items-center">
+                <h2>Tenant Investigation Functions</h2>
+                <span class="expand-text">(Click to expand)</span>
+            </div>
+        </div>
+    
+        <div id="investigationFunctions"
+             class="collapse">
+            <div class="bg-white rounded-lg p-4 mt-3 shadow-sm space-y-6">
+                <div class="alert alert-info" role="alert">
+                    <p><strong>Note:</strong> Start-HawkTenantInvestigation executes the following functions in sequence.
+                        Each of these functions can also be run independently as a standalone command for targeted investigations.</p>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th style="min-width: 200px;">Function Name</th>
+                                <th style="min-width: 300px;">Description</th>
+                                <th style="min-width: 200px;">Output Files</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Get-HawkTenantConfiguration</td>
+                                <td>Gathers basic tenant configuration including admin audit settings, organization config,
+                                    remote domains, transport rules, and transport configuration.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>AdminAuditLogConfig.txt</li>
+                                        <li>OrgConfig.txt</li>
+                                        <li>RemoteDomain.csv/.json</li>
+                                        <li>TransportRules.csv/.json</li>
+                                        <li>TransportConfig.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkTenantEDiscoveryConfiguration</td>
+                                <td>Retrieves comprehensive eDiscovery permissions data from both built-in Exchange Online Role
+                                    Groups and custom management role entries.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>EDiscoveryRoles.csv/.json</li>
+                                        <li>CustomEDiscoveryRoles.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Get-HawkTenantEDiscoveryLog</td>
+                                <td>Collects eDiscovery activity logs, tracking searches, exports, and case management activities.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Simple_eDiscoveryLogs.csv/.json</li>
+                                        <li>eDiscoveryLogs.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkTenantAdminInboxRuleCreation</td>
+                                <td>Searches the Unified Audit Log (UAL) for inbox rule creation events performed through 
+                                    administrative interfaces or PowerShell. Tracks when administrators or scripts create rules, 
+                                    and flags suspicious configurations like forwarding or deletion rules.</td>
+
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Simple_Admin_Inbox_Rules_Creation.csv/.json</li>
+                                        <li>Admin_Inbox_Rules_Creation.csv/.json</li>
+                                        <li>_Investigate_Admin_Inbox_Rules_Creation.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkTenantAdminInboxRuleModification</td>
+                                <td>Searches the UAL for inbox rule modifications made through administrative interfaces or PowerShell.
+                                    Focuses on rule changes made using administrative tools rather than user interfaces like Outlook.
+                                    Flags suspicious modifications involving forwarding or deletion rules.</td>
+
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Simple_Admin_Inbox_Rules_Modification.csv/.json</li>
+                                        <li>Admin_Inbox_Rules_Modification.csv/.json</li>
+                                        <li>_Investigate_Admin_Inbox_Rules_Modification.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkTenantAdminInboxRuleRemoval</td>
+                                <td>Searches the UAL for inbox rule removal events performed through administrative interfaces or PowerShell.
+                                    Tracks when rules are deleted using administrative tools rather than user interfaces. 
+                                    Flags if removed rules had suspicious configurations.</td>
+
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Simple_Admin_Inbox_Rules_Removal.csv/.json</li>
+                                        <li>Admin_Inbox_Rules_Removal.csv/.json</li>
+                                        <li>_Investigate_Admin_Inbox_Rules_Removal.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkTenantAdminMailboxPermissionChange</td>
+                                <td>Tracks administrative changes to mailbox permissions made through PowerShell or admin centers. 
+                                    Monitors when administrators grant or modify FullAccess, SendAs, or Send on Behalf permissions.</td>
+
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Simple_Mailbox_Permission_Change.csv/.json</li>
+                                        <li>Mailbox_Permission_Change.csv/.json</li>
+                                        <li>_Investigate_Mailbox_Permission_Change.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkTenantAdminEmailForwardingChange</td>
+                                <td>Monitors administrative changes to email forwarding settings made through PowerShell or admin centers. 
+                                    Helps detect unauthorized forwarding configurations made using administrative tools rather than user interfaces.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Simple_Forwarding_Changes.csv/.json</li>
+                                        <li>Forwarding_Changes.csv/.json</li>
+                                        <li>Forwarding_Recipients.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+       
+                            <tr>
+                                <td>Get-HawkTenantDomainActivity</td>
+                                <td>Monitors changes to domain configurations and federations in Microsoft 365.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Domain_Changes_Audit.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkTenantRBACChange</td>
+                                <td>Collects Role-Based Access Control changes in the UAL, including role assignments
+                                    and management scopes. Assists in tracking M365 administrative permissions changes
+                                across the the tenant</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Simple_RBAC_Changes.csv/.json</li>
+                                        <li>RBAC_Changes.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkTenantEntraIDAuditLog</td>
+                                <td>Retrieves Microsoft Entra ID audit logs for comprehensive identity management
+                                    tracking.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>EntraIDAuditLogs.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkTenantEntraIDAppAuditLog</td>
+                                <td>Searches the UAL for historical events related to application permissions and consent grants 
+                                    in Microsoft Entra ID. It focuses on tracking when and by whom application 
+                                    permissions were granted or modified.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Entra_ID_Application_Audit.csv/.json</li>
+                                        <li>_Investigate_Consent_Grants.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkTenantEXOAdmin</td>
+                                <td>Exports Exchange Online administrator roles and memberships.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>ExchangeOnlineAdministrators.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkTenantConsentGrant</td>
+                                <td>Reviews application and delegated permission grants. Flags for investigation if 
+                                    overly permissive or risky risky permissions are assigned.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Consent_Grants.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkTenantRiskyUsers</td>
+                                <td>Collects Risky Users log from Microsoft Entra ID. Flags for investigation if Risky users are
+                                    confirmed to be compromised, or if users are at a High, Medium, or Low risk level.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>RiskyUsers.csv/.json</li>
+                                        <li>_Investigate_Compromised_Users.csv/.json</li>
+                                        <li>_Investigate_Risky_Users.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkTenantRiskDetections</td>
+                                <td>Retrieves risk detection events from Microsoft Entra ID. Differs from Risky Users
+                                    as this is an aggregated assessment of Risk Events as. Flags for investigation if Risky detections
+                                    are confirm a user to be compromised, or if users are at a High, Medium, or Low risk level.
+                                </td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Risk_Detections.csv/.json</li>
+                                        <li>_Investigate_Confirmed_Compromised_Risk_Detection.csv/.json</li>
+                                        <li>_Investigate_Risk_Detection.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkTenantEntraIDAdmin</td>
+                                <td>Exports Microsoft Entra ID administrator roles and assignments.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>EntraIDAdministrators.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkTenantAppAndSPNCredentialDetail</td>
+                                <td>Examines application and service principal credential configurations.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>SPNCertsAndSecrets.csv/.json</li>
+                                        <li>ApplicationCertsAndSecrets.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkTenantEntraIDUser</td>
+                                <td>Exports Microsoft Entra ID user information with focus on security-relevant properties.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>EntraIDUsers.csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+  </div>
+  
+  <br>
+  <hr>
+
+  <br>
+<!-- Investigative Signals Section -->
+<div class="table-container">
+    <section class="mb-12">
+        <div class="collapsible-header" data-bs-toggle="collapse" data-bs-target="#investigativeSignals" aria-expanded="false">
+            <i class="fas fa-chevron-right collapsible-arrow"></i>
+            <div class="d-flex align-items-center">
+                <h2>Investigative Signals</h2>
+                <span class="expand-text">(Click to expand)</span>
+            </div>
+        </div>
+        
+        <div id="investigativeSignals" class="collapse">
+            <div class="bg-white rounded-lg p-4 mt-3 shadow-sm space-y-6">
+                <p>During Tenant Investigations, Hawk automatically flags suspicious activities and configurations that warrant further review. These findings are stored in files prefixed with "_Investigate_" and represent detection logic built into specific functions:</p>
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th style="min-width: 200px;">Detection File</th>
+                                <th style="min-width: 300px;">What Triggers This Flag</th>
+                                <th style="min-width: 300px;">Why This Matters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>_Investigate_Admin_Inbox_Rules_Creation.csv/.json<br>
+                                    _Investigate_Admin_Inbox_Rules_Modification.csv/.json<br>
+                                    _Investigate_Admin_Inbox_Rules_Removal.csv/.json</td>
+                                <td>Rules that contain any of:
+                                    <ul class="mb-0">
+                                        <li>ForwardTo settings</li>
+                                        <li>ForwardAsAttachmentTo settings</li>
+                                        <li>RedirectTo settings</li>
+                                        <li>DeleteMessage set to true</li>
+                                        <li>Move to Deleted Items folder</li>
+                                    </ul>
+                                </td>
+                                <td>Attackers commonly use inbox rules for persistent data exfiltration and to hide their activities. Forward/redirect rules can secretly send copies of emails to attacker-controlled addresses, while deletion rules can remove evidence of compromise or hide malicious communications from the user.</td>
+                            </tr>
+                            <tr>
+                                <td>_Investigate_Confirmed_Compromised_Risk_Detection.csv/.json<br>
+                                    _Investigate_Risk_Detection.csv/.json</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Users with RiskState = "confirmedCompromised"</li>
+                                        <li>Risk detections at High/Medium/Low levels</li>
+                                    </ul>
+                                </td>
+                                <td>These signals represent Microsoft's evaluation of user risk based on machine learning and threat intelligence. Confirmed compromised accounts indicate high-confidence detections of malicious activity, while risk levels indicate potential compromise based on suspicious patterns like impossible travel or unusual behavior.</td>
+                            </tr>
+                            <tr>
+                                <td>_Investigate_Confirmed_Users.csv/.json<br>
+                                    _Investigate_Risky_Users.csv/.json</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Users with RiskState = "confirmedCompromised"</li>
+                                        <li>Users with High/Medium/Low risk levels</li>
+                                    </ul>
+                                </td>
+                                <td>Similar to risk detections, these files track user accounts that have exhibited suspicious behavior or confirmed compromise. Review these in conjunction with risk detections to understand the full scope of potentially affected accounts and the timeline of suspicious activities.</td>
+                            </tr>
+                            <tr>
+                                <td>_Investigate_Consent_Grants.csv/.json</td>
+                                <td>
+                                    Consent grants flagged for review based on specific risk criteria:
+                                    <ul>
+                                        <li><strong>Broad-Scope Grants:</strong> Grants where ConsentType includes 'AllPrincipals' or the permission contains the term 'all'.</li>
+                                        <li><strong>Extremely Dangerous Grants:</strong> Grants with permissions matching:
+                                            <ul>
+                                                <li>AppRoleAssignment.ReadWrite.All</li>
+                                                <li>RoleManagement.ReadWrite.Directory</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>High Risk Grants:</strong> Grants with permissions matching patterns such as:
+                                            <ul>
+                                                <li>BitlockerKey.Read.All</li>
+                                                <li>Any permission starting with Chat.</li>
+                                                <li>Directory.ReadWrite.All</li>
+                                                <li>Any permission starting with eDiscovery.</li>
+                                                <li>Any permission starting with Files.</li>
+                                                <li>MailboxSettings.ReadWrite</li>
+                                                <li>Mail.ReadWrite</li>
+                                                <li>Mail.Send</li>
+                                                <li>Any permission starting with Sites.</li>
+                                                <li>Any permission starting with User.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    These investigation files document consent grants that warrant further review. 
+                                    Overly permissive or risky grants, whether due to broad-scope access, extremely dangerous privileges, 
+                                    or high risk permission patterns, may signal over provisioning or potential compromise. 
+                                    Reviewing these files helps ensure that permission assignments adhere to security best practices.
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>_Investigate_Mailbox_Permission_Change.csv/.json</td>
+                                <td>Grants of sensitive permissions:
+                                    <ul class="mb-0">
+                                        <li>FullAccess rights</li>
+                                        <li>SendAs rights</li>
+                                        <li>Send on Behalf rights</li>
+                                    </ul>
+                                </td>
+                                <td>Attackers often add mailbox permissions to maintain persistent access or to access additional mailboxes. FullAccess rights provide complete mailbox control, while SendAs/Send on Behalf rights can be used for social engineering or to send malicious emails that appear legitimate to recipients.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</br>
+<hr>
+
+    
+<br>
+
+<section class="mb-5">
+  <h2 class="text-center">Spread Your Wings</h2>
+  </br>
+  <div class="row g-4">
+    <!-- Go Back Card -->
+    <div class="col-md-6">
+      <div class="card user-guide-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title">Go Back</h5>
+          <p class="card-text">Review the previous section: Permissions Setup.</p>
+          <a href="./permissions-setup.html" class="btn btn-outline-primary">Circle Back</a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Up Next Card -->
+    <div class="col-md-6">
+      <div class="card user-guide-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title">Up Next</h5>
+          <p class="card-text">Uncover the details: User Investigations are up next.</p>
+          <a href="user-investigation.html" class="btn btn-primary">Fly Forward</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <hr/>
+
+  </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6">
+                  <h5>About Hawk</h5>
+                  <p>A community-driven PowerShell module for Microsoft Cloud security analysis and forensic investigation.</p>
+              </div>
+              <div class="col-lg-3">
+                  <h5>Links</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="https://github.com/T0pCyber/hawk">GitHub</a></li>
+                      <li><a href="./overview.html">User Guide</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/discussions">Community</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-3">
+                  <h5>Resources</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="https://www.powershellgallery.com/packages/Hawk">PowerShell Gallery</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/issues">Report Issues</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/blob/master/LICENSE">License</a></li>
+                  </ul>
+              </div>
+          </div>
+          <hr class="mt-4 mb-4">
+          <div class="row">
+              <div class="col-12 text-center">                    
+                  <p class="text-center disclaimer mb-0">
+                      &copy; <span id="year"></span> Hawk Project.
+                    </p>                    <p class="disclaimer mb-0">Hawk is an open-source project and is not affiliated with Microsoft Corporation.</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"
+  ></script>
+
+  <script>
+    // Simple year auto-update
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

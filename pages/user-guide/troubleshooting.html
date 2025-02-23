@@ -1,0 +1,402 @@
+<!-- installation.html -->
+<!-- 
+This page includes:
+- PowerShell requirements
+- Module dependencies
+- Installation steps
+- Permission requirements
+- Initial configuration
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hawk - Troubleshooting</title>
+  <!-- google analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPNR1QR0MG"></script>
+  <script src="../../assets/js/google-analytics.js" defer></script>
+  
+  <!-- Bootstrap CSS -->
+
+
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+    <!-- Custom JavaScript -->
+  <script src="../../assets/js/script.js"></script>
+  <!-- Font Awesome (optional if needed) -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    rel="stylesheet"
+  />
+  <!-- Global Styles (styles.css) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <!-- Doc-Specific Styles (user-guide.css) -->
+  <link rel="stylesheet" href="../../assets/css/user-guide.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <img src="../../assets/images/hawk_logo_no_background.png" alt="Hawk Logo" class="navbar-logo me-2" style="height: 40px;">
+                Hawk
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                          
+                          <!-- user-guide Dropdown -->
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                              User Guide
+                            </a>
+                            <ul class="dropdown-menu">
+                              <!-- Main docs page -->
+                              <li>
+                                <a class="dropdown-item" href="overview.html">
+                                  Overview
+                                </a>
+                              </li>
+                              <li><hr class="dropdown-divider"></li>
+                  
+                              <!-- Subsections -->
+                              <li>
+                                <a class="dropdown-item" href="installation.html">
+                                  Installation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="permissions-setup.html">
+                                  Permissions Setup
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="tenant-investigation.html">
+                                  Tenant Investigation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="user-investigation.html">
+                                  User Investigation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="troubleshooting.html">
+                                  Troubleshooting
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../tutorials.html">Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../support.html">Support</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../about.html">About</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+  <!-- user-guide Banner -->
+  <section class="user-guide-hero">
+    <div class="container text-center">
+      <h1><span class="highlight-word">User Guide:</span></h1>
+      <h2><span class="highlight-word">Troubleshooting</span></h2>
+    </div>
+</section>
+
+
+  <!-- Main Doc Content -->
+  <div class="container py-5">
+
+    <!-- Known Issues Section -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Known Issues & Workarounds</h2>
+      <div class="bg-gray-50 rounded-lg p-6">
+          <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
+              <h3 class="mb-4">PowerShell Core Suggestion Messages</h3>
+                <p><strong>Issue:</strong> When running Hawk commands, particularly during tenant investigations, users may see repeated 
+                  "Suggestion [4,General]: The most similar commands are..." messages. This behavior appears to be related to PowerShell's 
+                  command suggestion feature, which became a mainstream (non-experimental) feature in PowerShell 7.5.
+                  For technical details and current status, see <a href="https://github.com/T0pCyber/hawk/issues/261" target="_blank">
+                    GitHub Issue #261</a>.</p>              
+              <div class="mt-4 text-center">
+                <img src="../../assets/images/troubleshooting/known-issue-PS-core-suggestion-message.jpg" 
+                    alt="PowerShell Core suggestion message example" 
+                    class="img-fluid rounded shadow-sm">
+            </div>
+
+              <h4 class="mt-4">Impact:</h4>
+              <ul class="list-disc pl-6 space-y-2">
+                  <li>Only occurs in PowerShell Core</li>
+                  <li>Only affects Tenant Investigation functions that use Exchange Online cmdlets</li>
+                  <li>Does not affect Hawk data collection or results</li>
+                  <li>Purely cosmetic issue with command suggestions</li>
+              </ul>
+
+              <h4 class="mt-4">Current Workaround:</h4>
+              <p>Users who find these messages particularly disruptive may 
+                prefer to use PowerShell Desktop, where this issue does not occur.</p>
+
+              <h4 class="mt-4">Long-term Fix:</h4>
+              <p>We continue to investigate the root cause of this behavior in PowerShell Core and will update the documentation when a more permanent solution is identified. </p>
+          </div>
+      </div>
+  </section>
+
+    <!-- Connection Issues Section -->
+    <!-- <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Common Connection Issues</h2>
+      <div class="bg-gray-50 rounded-lg p-6 mb-8">
+          <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
+            <h3 class="mb-4">Connection Problems</h3>
+            <ul class="list-disc pl-6 space-y-3">
+              <li>Graph API connection issues</li>
+              <li>Exchange Online connectivity failures</li>
+              <li>Authentication errors</li>
+              <li>Certificate and credential problems</li>
+              <li>Connection status verification</li>
+            </ul>
+          </div>
+          <div class="mt-4">
+            <p class="text-muted">Detailed connection troubleshooting steps coming soon...</p>
+          </div>
+      </div>
+    </section> -->
+
+    <!-- Permissions Section -->
+    <!-- <hr/>
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Permission-Related Problems</h2>
+      <div class="bg-gray-50 rounded-lg p-6">
+        <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
+          <h3 class="mb-4">Common Permission Issues</h3>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Missing permissions symptoms</li>
+            <li>Permission validation steps</li>
+            <li>Common permission errors</li>
+            <li>Admin consent troubleshooting</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <p class="text-muted">Permission validation and resolution steps coming soon...</p>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Data Collection Section -->
+    <!-- <hr/>
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Data Collection Issues</h2>
+      <div class="bg-gray-50 rounded-lg p-6">
+        <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
+          <h3 class="mb-4">Common Data Issues</h3>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Audit log access problems</li>
+            <li>Empty or incomplete results</li>
+            <li>Performance issues with large data sets</li>
+            <li>Timeouts during collection</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <p class="text-muted">Data collection troubleshooting guide coming soon...</p>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Error Messages Section -->
+    <!-- <hr/>
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Error Message Reference</h2>
+      <div class="bg-gray-50 rounded-lg p-6">
+        <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
+          <h3 class="mb-4">Common Error Messages</h3>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Error message explanations</li>
+            <li>Root cause analysis</li>
+            <li>Resolution steps</li>
+            <li>When to create GitHub issues</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <p class="text-muted">Complete error message reference coming soon...</p>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Installation Problems Section -->
+    <!-- <hr/>
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Installation & Update Problems</h2>
+      <div class="bg-gray-50 rounded-lg p-6">
+        <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
+          <h3 class="mb-4">Common Installation Issues</h3>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>PowerShell Gallery issues</li>
+            <li>Module dependency problems</li>
+            <li>Version conflicts</li>
+            <li>Clean installation steps</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <p class="text-muted">Installation troubleshooting guide coming soon...</p>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Environment Validation Section -->
+    <!-- <hr/>
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Environment Validation</h2>
+      <div class="bg-gray-50 rounded-lg p-6">
+        <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
+          <h3 class="mb-4">System Requirements</h3>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>PowerShell version compatibility</li>
+            <li>Required module verification</li>
+            <li>Network configuration validation</li>
+            <li>Proxy/firewall considerations</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <p class="text-muted">Environment validation guide coming soon...</p>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Diagnostic Tools Section -->
+    <!-- <hr/>
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Diagnostic Tools & Commands</h2>
+      <div class="bg-gray-50 rounded-lg p-6">
+        <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
+          <h3 class="mb-4">Available Tools</h3>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Built-in diagnostic cmdlets</li>
+            <li>Log file locations</li>
+            <li>Debug mode options</li>
+            <li>Health check commands</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <p class="text-muted">Diagnostic tools documentation coming soon...</p>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Getting Help Section -->
+    <!-- <hr/>
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Getting Help</h2>
+      <div class="bg-gray-50 rounded-lg p-6">
+        <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
+          <h3 class="mb-4">Support Options</h3>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>How to report issues</li>
+            <li>Required information for bug reports</li>
+            <li>Community support channels</li>
+            <li>Emergency support options</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <p class="text-muted">Support documentation coming soon...</p>
+        </div>
+      </div>
+    </section> -->
+    <br>
+    <br>
+    <hr/>
+    <br>
+    <section class="mb-5">
+      <h2 class="text-center">Spread Your Wings</h2>
+      <br>
+      <div class="row g-4 d-flex justify-content-center">
+        <!-- Up Next Card -->
+        <div class="col-md-6">
+          <div class="card user-guide-card shadow-sm h-100 mx-auto">
+            <div class="card-body text-center">
+              <h5 class="card-title">Go Back</h5>
+              <p class="card-text">Review the previous section: User Investigation.</p>
+              <a href="user-investigation.html" class="btn btn-primary">Circle Back</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+
+    <hr/>
+
+  </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6">
+                  <h5>About Hawk</h5>
+                  <p>A community-driven PowerShell module for Microsoft Cloud security analysis and forensic investigation.</p>
+              </div>
+              <div class="col-lg-3">
+                  <h5>Links</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="https://github.com/T0pCyber/hawk">GitHub</a></li>
+                      <li><a href="./overview.html">User Guide</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/discussions">Community</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-3">
+                  <h5>Resources</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="https://www.powershellgallery.com/packages/Hawk">PowerShell Gallery</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/issues">Report Issues</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/blob/master/LICENSE">License</a></li>
+                  </ul>
+              </div>
+          </div>
+          <hr class="mt-4 mb-4">
+          <div class="row">
+              <div class="col-12 text-center">                    
+                  <p class="text-center disclaimer mb-0">
+                      &copy; <span id="year"></span> Hawk Project.
+                    </p>                    <p class="disclaimer mb-0">Hawk is an open-source project and is not affiliated with Microsoft Corporation.</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"
+  ></script>
+
+  <script>
+    // Simple year auto-update
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

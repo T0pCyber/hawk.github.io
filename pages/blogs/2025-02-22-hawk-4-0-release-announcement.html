@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Hawk 4.0 Release - Major Features and Improvements</title>
+
+    <!-- google analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPNR1QR0MG"></script>
+    <script src="../../../assets/js/google-analytics.js" defer></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="../../../assets/css/styles.css" rel="stylesheet" />
+    <link href="../../../assets/css/user-guide.css" rel="stylesheet" />
+    <link href="../../../assets/css/blogs.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <img src="../../../assets/images/hawk_logo_no_background.png" alt="Hawk Logo" class="navbar-logo me-2" style="height: 40px;">
+                Hawk
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            User Guide
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../user-guide/overview.html">Overview</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../user-guide/installation.html">Installation</a></li>
+                            <li><a class="dropdown-item" href="../user-guide/permissions-setup.html">Permissions Setup</a></li>
+                            <li><a class="dropdown-item" href="../user-guide/tenant-investigation.html">Tenant Investigation</a></li>
+                            <li><a class="dropdown-item" href="../user-guide/user-investigation.html">User Investigation</a></li>
+                            <li><a class="dropdown-item" href="../user-guide/troubleshooting.html">Troubleshooting</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../tutorials.html">Tutorials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../support.html">Support</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <div class="blog-header">
+        <div class="container">
+            <div class="blog-content-wrapper">
+                <!-- Tags -->
+                <div class="blog-tag-section">
+                    <a href="#" class="blog-tag">Release Notes</a>
+                    <a href="#" class="blog-tag">Microsoft 365</a>
+                    <a href="#" class="blog-tag">Security</a>
+                    <a href="#" class="blog-tag">Cloud Forensics</a>
+                </div>
+
+                <h1 class="mb-4">Hawk 4.0: Soaring to New Heights</h1>
+                
+                <!-- Author section -->
+                <div class="blog-author-section d-flex align-items-center">
+                    <a href="../about.html#core-contributors"><img src="../../../assets/images/hawk_logo_no_background-removebg.png" alt="Hawk Development Team" 
+                         class="blog-author-image me-3">
+                    <div>
+                        <h5 class="mb-0">Hawk Development Team</h5></a>
+                        <div class="blog-metadata">
+                            <span class="me-3">February 22, 2025</span>
+                            <span>8 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog post content -->
+                <article class="blog-article">
+                    <p class="blog-lead">
+                        Today, we're excited to announce the release of Hawk 4.0, our most significant update yet. Over the past year, our 
+                        community has provided invaluable feedback about our investigation workflows, the demand for retrieving a wider set 
+                        of logs across Microsoft 365, as well as expanding coverage for Microsoft Entra ID logs. We've listened carefully and 
+                        rebuilt core components of Hawk to create a more powerful, efficient, and user-friendly forensics tool.
+                    </p>
+
+                    <p>
+                        This release represents a major milestone in Hawk's evolution, introducing extended search capabilities that unlock 
+                        historical data access up to 365 days - a dramatic improvement from previous limitations. We've introduced a 'non-interactive' 
+                        mode via command-line parameters, allowing seamless automation with Hawk, while adding investigative detection features 
+                        that help identify potential security threats better than ever before.
+                    </p>
+
+                    <h2>Expanded User Investigation Capabilities</h2>
+                    <p>
+                        At the core of Hawk 4.0 are extensive additions to user investigation capabilities, providing deeper visibility into 
+                        user activities across Microsoft 365 services. We've added the collection of several new 
+                        <a href="./2025-02-22-hawk-expanded-cloud-logs.html">M365 log sources</a> and enhanced our analysis capabilities 
+                        to help identify suspicious patterns more effectively. While these new capabilities are built into Start-HawkUserInvestigation,
+                        each function can also be run independently for targeted analysis.
+                    </p>
+                    
+                    <ul>
+                        <li><strong>Enhanced Exchange Log Visibility:</strong>
+                            <ul>
+                                <li>Retrieve detailed message sending activity from Exchange 'Send' logs</li>
+                                <li>Collect email access logs (MailItemsAccessed) to detect unauthorized message access and retrieval</li>
+                                <li>New Hawk Cmdlets:
+                                    <ul>
+                                        <li>Get-HawkUserMailSendActivity</li>
+                                        <li>Get-HawkUserMailItemsAccessed</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        
+                        <li><strong>Detect M365 Reconnaissance Activities:</strong>
+                            <ul>
+                                <li>Monitor Exchange search activity with SearchQueryInitiatedExchange logs</li>
+                                <li>Track SharePoint document searches using SearchQueryInitiatedSharePoint logs</li>
+                                <li>New Hawk Cmdlets:
+                                    <ul>
+                                        <li>Get-HawkUserExchangeSearchQuery</li>
+                                        <li>Get-HawkUserSharePointSearchQuery</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h2>Enhanced Microsoft Entra ID Visibility</h2>
+                    <p>
+                        Hawk 4.0 significantly expands our Microsoft Entra ID coverage, introducing new cmdlets for comprehensive identity 
+                        security analysis and risk detection. These tools help identify compromised accounts and suspicious application access.
+                    </p>
+                    
+                    <ul>
+                        <li><strong>Sign-in Analysis:</strong> Get-HawkUserEntraIDSignInLog for detailed authentication logs in Entra ID</li>
+                        <li><strong>Risk Detection:</strong> New Hawk cmdlets for analyzing user, service principal, and overall tenant risk:
+                            <ul>
+                                <li>Get-HawkTenantRiskyUsers</li>
+                                <li>Get-HawkTenantRiskDetections</li>
+                                <li>Get-HawkTenantRiskyServicePrincipals</li>
+                            </ul>
+                        </li>
+                        <li><strong>Audit Coverage:</strong> 30-day comprehensive Entra ID audit log visibility via Get-HawkTenantEntraIDAuditLog</li>
+                        <li><strong>Application Analysis:</strong> Enhanced detection of broad-scope, high-risk, and extremely dangerous
+                            permissions granted to applications.</li>                    </ul>
+
+                    <h2>Investigation Workflow Improvements</h2>
+                    <p>
+                        We've streamlined the investigation process with new automation capabilities and improved progress tracking, making 
+                        Hawk more efficient for both interactive and automated use.
+                    </p>
+                    
+                    <ul>
+                        <li><strong>Non-Interactive Mode:</strong>
+                            <ul>
+                                <li>Command-line parameters for automated execution</li>
+                                <li>Support for scheduled tasks and workflow integration</li>
+                                <li>Configurable output paths and date ranges</li>
+                            </ul>
+                        </li>
+                        <li><strong>Enhanced Logging:</strong>
+                            <ul>
+                                <li>Pre-execution validation of audit operations</li>
+                                <li>Standardized UTC timestamps across all outputs</li>
+                                <li>Standardized log status indicators (Information, Action, Notice, Error) for clearer operation tracking</li>
+                            </ul>
+                        </li>
+                        <li><strong>License Detection:</strong> Automatic detection of available retention periods and features</li>
+                    </ul>
+
+                    <!-- Call to Action -->
+                    <section class="text-center mb-5">
+                        <h2>Ready to Update?</h2>
+                        <p class="lead">Explore the new features and help make Hawk even better.</p>
+                        <div class="mt-4">
+                            <a href="https://www.powershellgallery.com/packages/Hawk" class="btn btn-primary me-3">Download Now</a>
+                            <a href="https://github.com/T0pCyber/hawk" class="btn btn-outline-primary">View on GitHub</a>
+                        </div>
+                    </section>
+                </article>
+
+                <hr>
+
+                <!-- Related Posts -->
+                <div class="blog-related-posts">
+                    <h3>Related Posts</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <a href="./2025-02-22-hawk-expanded-cloud-logs.html" class="text-decoration-none">
+                                <div class="card blog-related-card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Microsoft Expanded Cloud Logs</h5>
+                                        <p class="card-text text-muted">An exploration of critical new logs in M365 and how to retrieve them...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- <div class="col-md-6">
+                            <a href="#" class="text-decoration-none">
+                                <div class="card blog-related-card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Advanced Investigation Techniques</h5>
+                                        <p class="card-text text-muted">Learn how to leverage Hawk for complex investigations...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5>About Hawk</h5>
+                    <p>A community-driven PowerShell module for Microsoft Cloud security analysis and forensic investigation.</p>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://github.com/T0pCyber/hawk">GitHub</a></li>
+                        <li><a href="../../user-guide/overview.html">User Guide</a></li>
+                        <li><a href="https://github.com/T0pCyber/hawk/discussions">Community</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.powershellgallery.com/packages/Hawk">PowerShell Gallery</a></li>
+                        <li><a href="https://github.com/T0pCyber/hawk/issues">Report Issues</a></li>
+                        <li><a href="https://github.com/T0pCyber/hawk/blob/master/LICENSE">License</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="text-center disclaimer mb-0">&copy; <span id="year"></span> Hawk Project.</p>
+                    <p class="disclaimer mb-0">Hawk is an open-source project and is not affiliated with Microsoft Corporation.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../assets/js/script.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Microsoft Expanded Cloud Logs Integration in Hawk 4.0</title>
+
+    <!-- Google Analytics -->
+    <script async src="../../../assets/js/google-analytics.js" defer></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPNR1QR0MG"></script>
+
+    <!-- CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
+    <link href="../../../assets/css/styles.css" rel="stylesheet" />
+    <link href="../../../assets/css/user-guide.css" rel="stylesheet" />
+    <link href="../../../assets/css/blogs.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <img src="../../../assets/images/hawk_logo_no_background.png" alt="Hawk Logo" class="navbar-logo me-2" style="height: 40px;">
+                Hawk
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            User Guide
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../user-guide/overview.html">Overview</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../user-guide/installation.html">Installation</a></li>
+                            <li><a class="dropdown-item" href="../user-guide/permissions-setup.html">Permissions Setup</a></li>
+                            <li><a class="dropdown-item" href="../user-guide/tenant-investigation.html">Tenant Investigation</a></li>
+                            <li><a class="dropdown-item" href="../user-guide/user-investigation.html">User Investigation</a></li>
+                            <li><a class="dropdown-item" href="../user-guide/troubleshooting.html">Troubleshooting</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../tutorials.html">Tutorials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../support.html">Support</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Content -->
+    <div class="blog-header">
+        <div class="container">
+            <div class="blog-content-wrapper">
+                <!-- Tags -->
+                <div class="blog-tag-section">
+                    <a href="#" class="blog-tag">Microsoft 365</a>
+                    <a href="#" class="blog-tag">Security</a>
+                    <a href="#" class="blog-tag">Cloud Logs</a>
+                    <a href="#" class="blog-tag">Hawk 4.0</a>
+                </div>
+
+                <h1 class="mb-4">Microsoft Expanded Cloud Logs: What They Reveal and How to Retrieve Them</h1>
+                
+                <!-- Author section -->
+                <div class="blog-author-section d-flex align-items-center">
+                    <a href="https://jonathan-butler.io"><img src="../../assets/images/blog/jon-headshot.jpg" alt="Jonathan Butler" class="blog-author-image me-3">
+                    <div>
+                        <h5 class="mb-0">Jonathan Butler</h5></a>
+                        <p class="text-muted mb-0">Developer, Hawk Project</p>
+                        <div class="blog-metadata">
+                            <span class="me-3">February 22, 2025</span>
+                            <span>10 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog post content -->
+                <article class="blog-article">
+                    <p class="blog-lead">Last year, Microsoft completed the rollout of expanded Microsoft Cloud logging, introducing four 
+                        critical log types that provide deeper visibility into security events across Microsoft 365. These logs 
+                        significantly enhance the ability to track email activity and identify reconnaissance attempts within 
+                        Exchange and SharePoint, marking a major step forward in forensic investigations and threat detection capabilities.</p>
+                
+                        <p>As part of a recent initiative to enhance cloud security visibility, Microsoft and CISA jointly released 
+                            the <strong>Microsoft Expanded Cloud Logs Implementation Playbook</strong>. This playbook serves as a crucial guide, 
+                            outlining how security teams can enable, collect, and analyze these logs effectively. As someone who's spent a 
+                            considerable amount of time working with Microsoft 365 logs, I can tell you this is a significant leap forward in 
+                            Microsoft cloud security visibility.</p>
+    
+                        <p>
+                            Beyond the new log types, one of the most immediate benefits of these changes is Microsoft doubling the default log retention period from 
+                            90 to 180 days for Audit Standard customers. This isn't just a numbers game, it’s a crucial expansion of investigation
+                             capabilities, especially for teams working with limited resources.
+                        </p>
+                            
+    
+                        <h2>The Four Game-Changing Log Types</h2>
+    
+                
+                    <h3>1. MailItemsAccessed</h3>
+                    <p>This is the log type I've been waiting for. It provides unprecedented visibility into email access patterns, helping 
+                        us spot unauthorized mailbox access early. The logs track granular access to individual messages, giving us clear 
+                        evidence of which emails were viewed or synced to a client.
+
+                    <h3>2. Mail "Send" Logs</h3>
+                    <p>The new <strong>Send</strong> logs provide robust tracking of all email sending operations, including crucial metadata 
+                        that was previously difficult to obtain. These logs help investigators determine when an email was sent, who sent it, 
+                        and what device or application was used. Additionally, they provide insight into potential compromise scenarios, 
+                        such as emails sent via command-line tools, non-GUI interfaces, or API-based access.. </p>
+
+                    <h3>3. SearchQueryInitiatedExchange</h3>
+                    <p>The <strong>SearchQueryInitiatedExchange</strong> logs are a valuable for detecting reconnaissance activity in 
+                        compromised mailboxes. These logs capture the actual search terms entered into Outlook’s search bar, allowing 
+                        investigators to determine what information a threat actor was trying to find. These logs provide a powerful tool
+                        for understanding an attackers intent.</p>
+                
+                    <h3>4. SearchQueryInitiatedSharePoint</h3>
+                    <p>The <strong>SearchQueryInitiatedSharePoint</strong> logs complete the picture by providing visibility into document-level 
+                        reconnaissance. This has been particularly important as more organizations store sensitive documents in SharePoint and OneDrive.</p>
+                    
+                    <p>These logs capture the exact search terms entered into SharePoint, along with metadata such as the type of SharePoint 
+                        site being searched (e.g., Home sites, Communication sites, Hub sites, and Microsoft Teams-associated sites). This 
+                        level of visibility allows investigators to determine if a threat actor is targeting specific files, projects, or 
+                        departments.</p>
+                
+                    <div class="blog-callout">
+                        <h4>Integration with Hawk 4.0</h4>
+                        <p>In the latest version of Hawk, we have integrated support for these new log types. You can collect them by running
+                            a Hawk User Investigation, or by running the standalone functions below:</p>
+                        <ul>
+                            <li>Get-HawkUserMailItemsAccessed</li>
+                            <li>Get-HawkUserMailSendActivity</li>
+                            <li>Get-HawkUserExchangeSearchQuery</li>
+                            <li>Get-HawkUserSharePointSearchQuery</li>
+                        </ul>
+                    </div>
+
+                    <h2>Why These Logs Matter</h2>
+                    <p>With the introduction of new log types and extended retention periods, security teams now have greater 
+                        visibility into critical security events. These enhancements enable deeper forensic analysis and provide 
+                        more actionable data, improving both threat detection and investigative workflows.</p>
+                    
+                    <p>Key advantages of leveraging these logs include:</p>
+                
+                    <ul>
+                        <li>Earlier detection of unauthorized access through detailed search activity tracking</li>
+                        <li>Improved correlation of user actions across Microsoft 365 services</li>
+                        <li>Better identification of unauthorized email access and suspicious outbound messages</li>
+                        <li>Enhanced detection of reconnaissance efforts in SharePoint and Exchange</li>
+                    </ul>
+                
+                    <h2>Getting Started</h2>
+                    <p>If you're ready to start leveraging these new capabilities, here's what I recommend:</p>
+                
+                    <ol>
+                        <li>Review the <a href="https://www.cisa.gov/resources-tools/resources/microsoft-expanded-cloud-logs-implementation-playbook">
+                            Microsoft Expanded Cloud Logs Implementation Playbook</a></li>
+                        <li>Enable these new logs within your Microsoft Cloud environment</li>
+                        <li>Update to <a href="https://www.powershellgallery.com/packages/HAWK">Hawk 4.0</a> to access the new cmdlets</a></li>
+                        <li>Ingest these logs into your SIEM of choice</li>
+                    </ol>
+                
+                </article>
+                
+               
+                <!-- Related Posts -->
+                <div class="blog-related-posts">
+                    <h3>Related Posts</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <a href="./2025-02-22-hawk-4-0-release-announcement.html" class="text-decoration-none">
+                                <div class="card blog-related-card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">What's New in Hawk 4.0</h5>
+                                        <p class="card-text text-muted">A deep dive into all the new features and improvements...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- <div class="col-md-6">
+                            <a href="#" class="text-decoration-none">
+                                <div class="card blog-related-card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Advanced Investigation Techniques</h5>
+                                        <p class="card-text text-muted">Learn how to leverage Hawk for complex investigations...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5>About Hawk</h5>
+                    <p>A community-driven PowerShell module for Microsoft Cloud security analysis and forensic investigation.</p>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://github.com/T0pCyber/hawk">GitHub</a></li>
+                        <li><a href="../../user-guide/overview.html">User Guide</a></li>
+                        <li><a href="https://github.com/T0pCyber/hawk/discussions">Community</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.powershellgallery.com/packages/Hawk">PowerShell Gallery</a></li>
+                        <li><a href="https://github.com/T0pCyber/hawk/issues">Report Issues</a></li>
+                        <li><a href="https://github.com/T0pCyber/hawk/blob/master/LICENSE">License</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="text-center disclaimer mb-0">&copy; <span id="year"></span> Hawk Project.</p>
+                    <p class="disclaimer mb-0">Hawk is an open-source project and is not affiliated with Microsoft Corporation.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../assets/js/script.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

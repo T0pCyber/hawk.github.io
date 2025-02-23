@@ -1,0 +1,285 @@
+<!-- installation.html -->
+<!--
+This page includes:
+- PowerShell requirements
+- Module dependencies
+- Installation steps
+- Permission requirements
+- Initial configuration
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hawk - Permissions</title>
+
+  <!-- google analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPNR1QR0MG"></script>
+  <script src="../../assets/js/google-analytics.js" defer></script>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+    <!-- Custom JavaScript -->
+  <script src="../../assets/js/script.js"></script>
+  <!-- Font Awesome (optional if needed) -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    rel="stylesheet"
+  />
+  <!-- Global Styles (styles.css) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <!-- Doc-Specific Styles (user-guide.css) -->
+  <link rel="stylesheet" href="../../assets/css/user-guide.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <img src="../../assets/images/hawk_logo_no_background.png" alt="Hawk Logo" class="navbar-logo me-2" style="height: 40px;">
+                Hawk
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+
+                          <!-- user-guide Dropdown -->
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                              User Guide
+                            </a>
+                            <ul class="dropdown-menu">
+                              <!-- Main docs page -->
+                              <li>
+                                <a class="dropdown-item" href="overview.html">
+                                  Overview
+                                </a>
+                              </li>
+                              <li><hr class="dropdown-divider"></li>
+
+                              <!-- Subsections -->
+                              <li>
+                                <a class="dropdown-item" href="installation.html">
+                                  Installation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="permissions-setup.html">
+                                  Permissions Setup
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="tenant-investigation.html">
+                                  Tenant Investigation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="user-investigation.html">
+                                  User Investigation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="troubleshooting.html">
+                                  Troubleshooting
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../tutorials.html">Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../support.html">Support</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../about.html">About</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+  <!-- user-guide Banner -->
+  <section class="user-guide-hero">
+    <div class="container text-center">
+      <h1><span class="highlight-word">User Guide:</span></h1>
+      <h2><span class="highlight-word">Permissions Setup</span></h2>
+    </div>
+</section>
+
+
+  <!-- Main Doc Content -->
+  <div class="container py-5">
+    <!-- Graph API Section -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Recommended Permissions</h2>
+      <div class="bg-gray-50 rounded-lg p-6 mb-8">
+          <p>Hawk requires the Microsoft Graph, Azure and M365 permissions to function properly. Microsoft Graph
+            permissions must be consented by an Administrator before an analyst can use Hawk. Azure and M365
+            permissions can be assigned individually or to a group (recommended):</p>
+          <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
+            <h3 class="mb-4">Recommended Graph Permissions assigned to the PowerShell Application</h3>
+            <ul class="list-disc pl-6 space-y-3">
+              <li><strong>Directory.Read.All</strong>: Read directory data</li>
+              <li><strong>DeviceManagementServiceConfig.Read.All</strong>: Read Microsoft Intune configuration</li>
+              <li><strong>AuditLog.Read.All</strong>: Read audit log data</li>
+              <li><strong>User.Read.All</strong>: Read all users' profiles</li>
+              <li><strong>IdentityRiskEvents.Read.All</strong>: Read all identity risk event information</li>
+              <li><strong>IdentityRiskyUser.Read.All.</strong>: Read all identity risky user information</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
+            <h3 class="mb-4">Recommended Azure Permissions</h3>
+            <ul class="list-disc pl-6 space-y-3">
+              <li><strong>Global Reader</strong>: Can read everything that an Global Admin can read
+                but can't update anything</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
+            <h3 class="mb-4">Recommended M365 Permissions</h3>
+            <ul class="list-disc pl-6 space-y-3">
+              <li><strong>User Options</strong>: Enables admins to view the Outlook on the web options of users in the organization</li>
+              <li><strong>View-Only Audit Logs</strong>: Search the administrator audit log and view the results</li>
+              <li><strong>View-Only Configuration</strong>: View all of the organization and mail flow (non-recipient) settings in the organization</li>
+              <li><strong>View-Only Recipients</strong>: View recipient properties and run message trace</li>
+            </ul>
+          </div>
+          <div class="mt-4">
+          </div>
+      </div>
+    </section>
+
+
+
+    <!-- Verification Section -->
+    <hr/>
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Administrator Consent for Microsoft Graph Permissions</h2>
+      <div class="bg-gray-50 rounded-lg p-6">
+        <p>Connect to Microsoft Graph to consent to required permissions:</p>
+        <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="Connect-MGGraph -Scopes 'User.Read.All', 'Directory.Read.All',
+        'DeviceManagementServiceConfig.Read.All', 'AuditLog.Read.All', 'IdentityRiskEvent.Read.All', 'IdentityRiskyUser.Read.All'"
+        <code>Connect-MGGraph -Scopes "User.Read.All","Directory.Read.All", "DeviceManagementServiceConfig.Read.All",
+             "AuditLog.Read.All", "IdentityRiskEvent.Read.All", "IdentityRiskyUser.Read.All"</code>
+        </div>
+        </div>
+    </section>
+
+    <!-- Security Considerations -->
+    <hr/>
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Permissions Assignment and Security Considerations</h2>
+      <div class="bg-gray-50 rounded-lg p-6">
+        <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Practice of least privilege - The above are recommendations using the default role groups and built in permissions. Granular access can be achieved by creating custom
+            role groups and leveraging conditional access.</li>
+            <li>Access reviews. If continued access using the Microsoft graph isn't required, revoke the access
+            upon completion of the investigation or use of Hawk.</li>
+            </ul>
+        </div>
+        </div>
+    </section>
+</br>
+<hr>
+<br>
+
+<section class="mb-5">
+  <h2 class="text-center">Spread Your Wings</h2>
+  </br>
+  <div class="row g-4">
+    <!-- Go Back Card -->
+    <div class="col-md-6">
+      <div class="card user-guide-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title">Go Back</h5>
+          <p class="card-text">Review the previous section: Hawk Installation.</p>
+          <a href="installation.html" class="btn btn-outline-primary">Circle Back</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Up Next Card -->
+    <div class="col-md-6">
+      <div class="card user-guide-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title">Up Next</h5>
+          <p class="card-text">Survey the territory: Begin your Tenant Investigation.</p>
+          <a href="tenant-investigation.html" class="btn btn-primary">Fly Ahead</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <hr/>
+
+  </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6">
+                  <h5>About Hawk</h5>
+                  <p>A community-driven PowerShell module for Microsoft Cloud security analysis and forensic investigation.</p>
+              </div>
+              <div class="col-lg-3">
+                  <h5>Links</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="https://github.com/T0pCyber/hawk">GitHub</a></li>
+                      <li><a href="./overview.html">User Guide</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/discussions">Community</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-3">
+                  <h5>Resources</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="https://www.powershellgallery.com/packages/Hawk">PowerShell Gallery</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/issues">Report Issues</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/blob/Master/LICENSE">License</a></li>
+                  </ul>
+              </div>
+          </div>
+          <hr class="mt-4 mb-4">
+          <div class="row">
+              <div class="col-12 text-center">
+                  <p class="text-center disclaimer mb-0">
+                      &copy; <span id="year"></span> Hawk Project.
+                    </p>                    <p class="disclaimer mb-0">Hawk is an open-source project and is not affiliated with Microsoft Corporation.</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"
+  ></script>
+
+  <script>
+    // Simple year auto-update
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

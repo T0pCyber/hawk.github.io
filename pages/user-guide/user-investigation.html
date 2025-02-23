@@ -1,0 +1,661 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hawk - User Investigation</title>
+  <!-- google analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPNR1QR0MG"></script>
+  <script src="../../assets/js/google-analytics.js" defer></script>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+    <!-- Custom JavaScript -->
+  <script src="../../assets/js/script.js"></script>
+  <!-- Font Awesome (optional if needed) -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    rel="stylesheet"
+  />
+  <!-- Global Styles (styles.css) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <!-- Doc-Specific Styles (user-guide.css) -->
+  <link rel="stylesheet" href="../../assets/css/user-guide.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <img src="../../assets/images/hawk_logo_no_background.png" alt="Hawk Logo" class="navbar-logo me-2" style="height: 40px;">
+                Hawk
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                          
+                          <!-- user-guide Dropdown -->
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                              User Guide
+                            </a>
+                            <ul class="dropdown-menu">
+                              <!-- Main docs page -->
+                              <li>
+                                <a class="dropdown-item" href="overview.html">
+                                  Overview
+                                </a>
+                              </li>
+                              <li><hr class="dropdown-divider"></li>
+                  
+                              <!-- Subsections -->
+                              <li>
+                                <a class="dropdown-item" href="installation.html">
+                                  Installation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="permissions-setup.html">
+                                  Permissions Setup
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="tenant-investigation.html">
+                                  Tenant Investigation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="user-investigation.html">
+                                  User Investigation
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="troubleshooting.html">
+                                  Troubleshooting
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../tutorials.html">Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../support.html">Support</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../about.html">About</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+  <!-- user-guide Banner -->
+  <section class="user-guide-hero">
+    <div class="container text-center">
+        <h1><span class="highlight-word">User Guide:</span></h1>
+        <h2><span class="highlight-word">User Investigation</span></h2>
+    </div>
+</section>
+
+<!-- Main Doc Content -->
+<div class="container py-5">
+    <!-- Overview Section -->
+    <section class="mb-12">
+        <h2>Overview</h2>
+        <div class="bg-white rounded-lg p-4 mt-3 shadow-sm space-y-6">
+            <p>
+                <code>Start-HawkUserInvestigation</code> is a comprehensive cmdlet that performs a targeted investigation of individual user accounts. 
+                It executes multiple specialized functions to gather detailed information about user configuration, activities, and potential security issues.
+            </p>
+
+            <p class="text-blue-700">
+                <strong>Note:</strong> A user investigation involves detailed data collection and can take significant time to complete. 
+                Run one user at a time initially to gauge execution time and plan investigations accordingly.
+            </p>
+        </div>
+    </section>
+    <br>
+    <!-- Interactive Mode Section -->
+    <hr/>
+    <section class="mb-12">
+        <h2>Interactive Mode</h2>
+        <div class="bg-white rounded-lg p-4 mt-3 shadow-sm space-y-6">
+            <p>Running Start-HawkUserInvestigation without parameters starts interactive mode:</p>
+            <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="Start-HawkUserInvestigation -UserPrincipalName user@contoso.com">
+                <code>Start-HawkUserInvestigation -UserPrincipalName user@contoso.com</code>
+            </div>
+        </br>
+            <p>The cmdlet will guide you through:</p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>Selecting an output directory for investigation results</li>
+                <li>Choosing a date range (last X days or specific start/end dates)</li>
+                <li>Confirming settings before proceeding</li>
+            </ul>
+            <p>Interactive mode is recommended for first-time users and ad-hoc investigations.</p>
+        </div>
+    </section>
+    <br>
+    <!-- Non-Interactive Mode Section -->
+    <hr/>
+    <section class="mb-12">
+        <h2>Non-Interactive Mode</h2>
+        <div class="bg-white rounded-lg p-4 mt-3 shadow-sm space-y-6">
+            <p>For automated operations, run Start-HawkUserInvestigation with any of the following parameters:</p>
+            <br>
+            <h3>Available Parameters</h3>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Type</th>
+                            <th>Required</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>UserPrincipalName</td>
+                            <td>String</td>
+                            <td>Yes</td>
+                            <td>UPN of user to investigate</td>
+                            <td>'user@contoso.com'</td>
+                        </tr>
+                        <tr>
+                            <td>StartDate</td>
+                            <td>DateTime</td>
+                            <td>No*</td>
+                            <td>Beginning of investigation period</td>
+                            <td>'01/01/2024'</td>
+                        </tr>
+                        <tr>
+                            <td>EndDate</td>
+                            <td>DateTime</td>
+                            <td>No*</td>
+                            <td>End of investigation period</td>
+                            <td>'01/31/2024'</td>
+                        </tr>
+                        <tr>
+                            <td>DaysToLookBack</td>
+                            <td>Integer</td>
+                            <td>No*</td>
+                            <td>Number of days to investigate (1-365)</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>FilePath</td>
+                            <td>String</td>
+                            <td>Yes</td>
+                            <td>Output directory for investigation results</td>
+                            <td>'C:\HawkOutput'</td>
+                        </tr>
+                        <tr>
+                            <td>SkipUpdate</td>
+                            <td>Switch</td>
+                            <td>No</td>
+                            <td>Bypass Hawk update check</td>
+                            <td>-SkipUpdate</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                <p class="text-muted mt-2">* Either StartDate/EndDate pair OR DaysToLookBack must be specified</p>
+                <br>
+                <h3>Examples:</h3>
+                <!-- Example 1 -->
+                <h4>Quick 30-Day Investigation</h4>
+                <p class="text-muted">Look back 30 days for a single user, saving results to C:\HawkOutput:</p>
+                <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="Start-HawkUserInvestigation -UserPrincipalName user@contoso.com -DaysToLookBack 30 -FilePath 'C:\HawkOutput' -SkipUpdate">
+                    <code>Start-HawkUserInvestigation -UserPrincipalName user@contoso.com -DaysToLookBack 30 -FilePath 'C:\HawkOutput' -SkipUpdate</code>
+                </div>
+                <br>
+
+                <!-- Example 2 -->
+                <h4>Date Range Investigation</h4>
+                <p class="text-muted">Investigate a specific user for January 2024 and output to a timestamped folder:</p>
+                <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="Start-HawkUserInvestigation -UserPrincipalName user@contoso.com -StartDate '01/01/2024' -EndDate '01/31/2024' -FilePath 'C:\HawkOutput'">
+                    <code>Start-HawkUserInvestigation -UserPrincipalName user@contoso.com -StartDate '01/01/2024' -EndDate '01/31/2024' -FilePath 'C:\HawkOutput'</code>
+                </div>
+                <br>
+
+                <!-- Example 3 -->
+                <h4>Multiple User Investigation</h4>
+                <p class="text-muted">Investigate all users with CustomAttribute1="VIP" for January 2024:</p>
+                <div class="terminal-box" onclick="copyToClipboard(this)" data-copy="$users = @('user1@contoso.com', 'user2@contoso.com') Start-HawkUserInvestigation -UserPrincipalName $users -DaysToLookBack 30 -FilePath 'C:\Investigations'">
+                    <code>$users = @('user1@contoso.com', 'user2@contoso.com')
+                        <br>
+                        Start-HawkUserInvestigation -UserPrincipalName $users -DaysToLookBack 30 -FilePath 'C:\Investigations'</code>
+                </div>
+                <br>
+
+        </div>
+    </section>
+
+    <!-- Functions Section -->
+     <br>
+    <hr/>
+    <br>
+    <div class="table-container">
+      <section class="mb-12">
+        <div class="collapsible-header" data-bs-toggle="collapse" data-bs-target="#investigationFunctions" aria-expanded="false">
+            <i class="fas fa-chevron-right collapsible-arrow"></i>
+            <div class="d-flex align-items-center">
+                <h2>User Investigation Functions</h2>
+                <span class="expand-text">(Click to expand)</span>
+            </div>
+        </div>
+        
+        <div id="investigationFunctions" class="collapse">
+            <div class="bg-white rounded-lg p-4 mt-3 shadow-sm space-y-6">
+              <div class="alert alert-info" role="alert">
+                <p><strong>Note:</strong> Start-HawkUserInvestigation executes the following functions in sequence. Each of these functions can also be run independently as a standalone command for targeted investigations.</p>
+            </div>           
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th style="min-width: 200px;">Function Name</th>
+                                <th style="min-width: 300px;">Description</th>
+                                <th style="min-width: 200px;">Output Files</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Get-HawkUserUALSignInLog</td>
+                                <td>Retrieves and analyzes historical authentication events from the Unified Audit Log (UAL), 
+                                    providing visibility into login patterns and sources. When enabled with -ResolveIPLocations, 
+                                    performs IP geolocation lookups to identify login origins and flags known Microsoft IP addresses. 
+                                </td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Converted_Authentication_Logs_[user].csv/.json</li>
+                                        <li>Raw_Authentication_Logs_[user].csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Get-HawkUserConfiguration</td>
+                                <td>Gathers baseline information about the user including mailbox settings, 
+                                    statistics, folder statistics, and CAS mailbox info.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Mailbox_Info_[user].txt</li>
+                                        <li>Mailbox_Statistics_[user].txt</li>
+                                        <li>Mailbox_Folder_Statistics_[user].txt</li>
+                                        <li>CAS_Mailbox_Info_[user].txt</li>
+                                        <li>Mailbox_Archive_Statistics_[user].txt (if applicable)</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Get-HawkUserInboxRule</td>
+                                <td>Retrieves current inbox rules directly from specified users' mailboxes using
+                                    Get-InboxRule. Analyzes rules for suspicious configurations (like external forwarding,
+                                    deletions, or redirects) and flags them for investigation. Also collects Sweep rules if present.
+                                    Unlike UAL-based functions, this shows current rules rather than historical changes.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>_Investigate_InboxRules_[user].csv/.json</li>
+                                        <li>InboxRules_[user].csv/.json</li>
+                                        <li>All_InboxRules_[user].csv/.json</li>
+                                        <li>SweepRules_[user].csv/.json (if present)</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Get-HawkUserEmailForwarding</td>
+                                <td>Retrieves current email forwarding configurations for specified users by directly querying their
+                                    mailbox settings. Reports all forwarding states and flags concerning configurations
+                                    (like external forwarding) for investigation. 
+                                    Unlike the tenant-level function, this shows current forwarding status rather than historical changes.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>_Investigate_Users_WithForwarding_[user].csv/.json</li>
+                                        <li>User_ForwardingReport_[user].csv/.json</li>
+                                        <li>ForwardingReport_[user].csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Get-HawkUserAutoReply</td>
+                                <td>Retrieves automatic reply (out-of-office) settings for specified users.
+                                    Only exports configurations when AutoReplyState is enabled. Used to verify
+                                    if auto-replies are active and review their content.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>AutoReply_[user].txt</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Get-HawkUserEntraIDSignInLog</td>
+                                <td>Retrieves Microsoft Entra ID sign-in logs for specified users from
+                                    the most recent 14 days (due to Graph API limitations). Analyzes
+                                    sign-in patterns and flags risky sign-ins for investigation,
+                                    including both real-time risk assessments during sign-in and aggregated risk levels.
+                                </td>
+
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Entra_Sign_In_Log_[user].csv</li>
+                                        <li>_Investigate_Entra_Sign_In_Log_[user].csv</li>
+
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Get-HawkUserMailboxAuditing</td>
+                                <td>Retrieves mailbox audit logs from the UAL,
+                                    focusing on two distinct types of activities: individual item operations (ExchangeItem)
+                                    and aggregated access patterns (ExchangeItemGroup). Each type is processed separately,
+                                    with both simplified and detailed output formats to support different analysis needs.
+                                </td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>ExchangeItem_Simple_[user].csv/.json</li>
+                                        <li>ExchangeItem_Logs_[user].csv/.json</li>
+                                        <li>ExchangeItemGroup_Simple_[user].csv/.json</li>
+                                        <li>ExchangeItemGroup_Logs_[user].csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Get-HawkUserAdminAudit</td>
+                                <td>Scans the UAL for any administrative changes made to the user's account and permissions.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Simple_User_Changes_[user].csv/.json</li>
+                                        <li>User_Changes_[user].csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Get-HawkUserMessageTrace</td>
+                                <td>
+                                    Retrieves the standard message tracking logs for sent messages. 
+                                    This function provides a snapshot of sender, recipient, and delivery status information 
+                                    for the last 7 days, limited to basic routing details.
+                                </td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Message_Trace_[user].csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Get-HawkUserMailItemsAccessed</td>
+                                <td>Collects mail access logs for user from the UAL. Useful for detecting unauthorized message access and 
+                                    retrieval.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>MailItemsAccessed_[user].csv/.json</li>
+                                        <li>Simple_MailItemsAccessed_[user].csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Get-HawkUserExchangeSearchQuery</td>
+                                <td>Collects UAL SearchQueryInitiatedExchange logs for associated user. Useful for identifying potential 
+                                    reconnaissance activities in Exchange.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>ExchangeSearches_[user].csv/.json</li>
+                                        <li>Simple_ExchangeSearches_[user].csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Get-HawkUserMailSendActivity</td>
+                                <td>
+                                    Tracks mail sending activity by querying the UAL for "Send" operations.
+                                    It retrieves detailed audit data—including contextual information on the
+                                    sending events.
+                                </td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>SendActivity_[user].csv/.json</li>
+                                        <li>Simple_SendActivity_[user].csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Get-HawkUserSharePointSearchQuery</td>
+                                <td>Collects UAL SearchQueryInitiatedSharePoint logs for associated user. Useful for identifying potential 
+                                    reconnaissance activities in SharePoint.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>SharePointSearches_[user].csv/.json</li>
+                                        <li>Simple_SharePointSearches_[user].csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Get-HawkUserMobileDevice</td>
+                                <td>Retrieves all mobile devices connected to a mailbox and flags those that first
+                                    synchronized during the investigation window for further review.</td>
+                                <td>                            
+                                    <ul class="mb-0">
+                                        <li>MobileDevices_[user].csv/.json</li>
+                                        <li>_Investigate_MobileDevice_[user].csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+</br>
+<hr>
+<br>
+
+<!-- Investigative Signals Section -->
+<div class="table-container">
+    <section class="mb-12">
+        <div class="collapsible-header" data-bs-toggle="collapse" data-bs-target="#investigativeSignals" aria-expanded="false">
+            <i class="fas fa-chevron-right collapsible-arrow"></i>
+            <div class="d-flex align-items-center">
+                <h2>Investigative Signals</h2>
+                <span class="expand-text">(Click to expand)</span>
+            </div>
+        </div>
+        
+        <div id="investigativeSignals" class="collapse">
+            <div class="bg-white rounded-lg p-4 mt-3 shadow-sm space-y-6">
+                <p>During User Investigations, Hawk automatically flags suspicious activities and configurations that warrant 
+                    further review. These findings are stored in files prefixed with "_Investigate_" and represent detection 
+                    logic built into specific functions:</p>
+        
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th style="min-width: 200px;">Detection File</th>
+                                <th style="min-width: 300px;">What Triggers This Flag</th>
+                                <th style="min-width: 300px;">Why This Matters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>_Investigate_Entra_Sign_In_Log_[user].csv/.json</td>
+                                <td>Entra ID sign-ins flagged for:
+                                    <ul class="mb-0">
+                                        <li>High/Medium/Low risk levels assigned by Entra ID to RiskLevelDuringSignIn property</li>
+                                        <li>High/Medium/Low risk levels assigned by Entra ID to RiskLevelAggregated property</li>
+                                    </ul>
+                                </td>
+                                <td>Microsoft Entra ID algorithms analyzes each sign-in for risk indicators. 
+                                    High, Medium, and Low risk ratings often indicate authentication patterns that deviate 
+                                    from the user's baseline behavior or are indicative of Risky activities. 
+                                    These automated detections can identify compromised accounts 
+                                    before manual analysis reveals the intrusion.</td>
+                            </tr>
+                            <tr>
+                                <td>_Investigate_InboxRules_[user].csv/.json</td>
+                                <td>Rules that contain any of:
+                                    <ul class="mb-0">
+                                        <li>ForwardTo settings</li>
+                                        <li>ForwardAsAttachmentTo settings</li>
+                                        <li>RedirectTo settings</li>
+                                        <li>DeleteMessage set to true</li>
+                                        <li>Move to Deleted Items folder</li>
+                                    </ul>
+                                </td>
+                                <td>Attackers frequently create inbox rules to automatically exfiltrate data or hide their activities. 
+                                    The rules can silently forward emails to external addresses or delete potential evidence of compromise. 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>_Investigate_MobileDevice_[user].csv/.json</td>
+                                <td>Mobile devices that:
+                                    <ul class="mb-0">
+                                        <li>Had their first synchronization time (FirstSyncTime) after the investigation start date</li>
+                                    </ul>
+                                </td>
+                                <td>New mobile device connections during an incident timeline warrant investigation, as attackers may add their own devices 
+                                    to maintain persistent mailbox access. When investigating a potential compromise, any new device synchronizations 
+                                    within the investigation period should be validated as legitimate user activity.</td>
+                            </tr>
+                            <tr>
+                                <td>_Investigate_Users_WithForwarding_[user].csv/.json</td>
+                                <td>Mailbox has any forwarding configured:
+                                    <ul class="mb-0">
+                                        <li>ForwardingAddress is set, OR</li>
+                                        <li>ForwardingSMTPAddress is set</li>
+                                    </ul>
+                                </td>
+                                <td>Email forwarding at the mailbox level is a common data exfiltration technique. 
+                                    Unlike inbox rules which forward individual messages, mailbox forwarding ensures a copy of 
+                                    every received email is sent to another address. This can indicate unauthorized configuration 
+                                    changes designed to silently copy mailbox contents to external destinations.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</br>
+<hr>
+
+    
+<br>
+
+
+<section class="mb-5">
+  <h2 class="text-center">Spread Your Wings</h2>
+  </br>
+  <div class="row g-4">
+    <!-- Go Back Card -->
+    <div class="col-md-6">
+      <div class="card user-guide-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title">Go Back</h5>
+          <p class="card-text">Review the previous section: Tenant Investigation.</p>
+          <a href="./tenant-investigation.html" class="btn btn-outline-primary">Circle Back</a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Up Next Card -->
+    <div class="col-md-6">
+      <div class="card user-guide-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title">Up Next</h5>
+          <p class="card-text">Smooth the flight path: Troubleshooting is next.</p>
+          <a href="troubleshooting.html" class="btn btn-primary">Fly Forward</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <hr/>
+
+  </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6">
+                  <h5>About Hawk</h5>
+                  <p>A community-driven PowerShell module for Microsoft Cloud security analysis and forensic investigation.</p>
+              </div>
+              <div class="col-lg-3">
+                  <h5>Links</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="https://github.com/T0pCyber/hawk">GitHub</a></li>
+                      <li><a href="./overview.html">User Guide</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/discussions">Community</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-3">
+                  <h5>Resources</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="https://www.powershellgallery.com/packages/Hawk">PowerShell Gallery</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/issues">Report Issues</a></li>
+                      <li><a href="https://github.com/T0pCyber/hawk/blob/master/LICENSE">License</a></li>
+                  </ul>
+              </div>
+          </div>
+          <hr class="mt-4 mb-4">
+          <div class="row">
+              <div class="col-12 text-center">                    
+                  <p class="text-center disclaimer mb-0">
+                      &copy; <span id="year"></span> Hawk Project.
+                    </p>                    <p class="disclaimer mb-0">Hawk is an open-source project and is not affiliated with Microsoft Corporation.</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"
+  ></script>
+
+  <script>
+    // Simple year auto-update
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

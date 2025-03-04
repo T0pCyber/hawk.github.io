@@ -325,6 +325,51 @@
                             </tr>
 
                             <tr>
+                                <td>Get-HawkUserUALInboxRuleCreation</td>
+                                <td>Searches the Unified Audit Log for historical records of inbox rule creation events
+                                    for the specified user(s). Flags suspicious rules that forward externally, delete 
+                                    messages, or have other potentially malicious configurations. This function tracks 
+                                    past rule creation activity even if the rules have been subsequently modified or removed.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Simple_User_Inbox_Rules_Creation_[user].csv/.json</li>
+                                        <li>User_Inbox_Rules_Creation_[user].csv/.json</li>
+                                        <li>_Investigate_User_Inbox_Rules_Creation_[user].csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkUserUALInboxRuleModification</td>
+                                <td>Searches the Unified Audit Log for historical records of inbox rule modification events
+                                    for the specified user(s). Flags modifications that introduced suspicious configurations
+                                    like external forwarding or message deletion. This function helps identify subtle changes
+                                    to existing rules that might have been compromised during an attack.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Simple_User_Inbox_Rules_Modification_[user].csv/.json</li>
+                                        <li>User_Inbox_Rules_Modification_[user].csv/.json</li>
+                                        <li>_Investigate_User_Inbox_Rules_Modification_[user].csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td>Get-HawkUserUALInboxRuleRemoval</td>
+                                <td>Searches the Unified Audit Log for historical records of inbox rule removal events
+                                    for the specified user(s). Flags removals of suspicious rules that may have been 
+                                    used for data exfiltration. This function helps identify potential cleanup activities
+                                    by attackers who remove evidence of compromise.</td>
+                                <td>
+                                    <ul class="mb-0">
+                                        <li>Simple_User_Inbox_Rules_Removal_[user].csv/.json</li>
+                                        <li>User_Inbox_Rules_Removal_[user].csv/.json</li>
+                                        <li>_Investigate_User_Inbox_Rules_Removal_[user].csv/.json</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
                                 <td>Get-HawkUserEmailForwarding</td>
                                 <td>Retrieves current email forwarding configurations for specified users by directly querying their
                                     mailbox settings. Reports all forwarding states and flags concerning configurations
@@ -539,6 +584,23 @@
                                 <td>Attackers frequently create inbox rules to automatically exfiltrate data or hide their activities. 
                                     The rules can silently forward emails to external addresses or delete potential evidence of compromise. 
                                 </td>
+                            </tr>
+                            <tr>
+                                <td>_Investigate_User_Inbox_Rules_Creation_[user].csv/.json<br>
+                                    _Investigate_User_Inbox_Rules_Modification_[user].csv/.json<br>
+                                    _Investigate_User_Inbox_Rules_Removal_[user].csv/.json</td>
+                                <td>Historical inbox rule events that match suspicious patterns:
+                                    <ul class="mb-0">
+                                        <li>Rules with forwarding configurations</li>
+                                        <li>Rules that delete or move messages to Deleted Items</li>
+                                        <li>Rules created, modified, or removed during incident timeline</li>
+                                    </ul>
+                                </td>
+                                <td>These files track historical changes to inbox rules, helping identify when suspicious rules were 
+                                created, modified, or removed. This historical perspective is crucial for understanding the 
+                                attacker's timeline even if the rules are no longer present. Rule creation events may indicate 
+                                initial compromise, modifications may show persistence mechanisms being added, and rule removals 
+                                may indicate attempted cleanup or evidence destruction activities.</td>
                             </tr>
                             <tr>
                                 <td>_Investigate_MobileDevice_[user].csv/.json</td>

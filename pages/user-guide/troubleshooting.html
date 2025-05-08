@@ -135,7 +135,7 @@ This page includes:
       <h2 class="text-3xl font-bold mb-6">Known Issues & Workarounds</h2>
       <div class="bg-gray-50 rounded-lg p-6">
           <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
-              <h3 class="mb-4">PowerShell Core Suggestion Messages</h3>
+              <h3 class="mb-4"><strong>PowerShell Core Suggestion Messages</strong></h3>
                 <p><strong>Issue:</strong> When running Hawk commands, particularly during tenant investigations, users may see repeated 
                   "Suggestion [4,General]: The most similar commands are..." messages. This behavior appears to be related to PowerShell's 
                   command suggestion feature, which became a mainstream (non-experimental) feature in PowerShell 7.5.
@@ -161,8 +161,75 @@ This page includes:
 
               <h4 class="mt-4">Long-term Fix:</h4>
               <p>We continue to investigate the root cause of this behavior in PowerShell Core and will update the documentation when a more permanent solution is identified. </p>
+              <br>
           </div>
       </div>
+      <br>
+      <br>
+      <div class="bg-gray-50 rounded-lg p-6 mt-4">
+        <div class="bg-white rounded-lg p-4 mt-3 shadow-sm">
+          <h3 class="mb-4"><strong>IPStack API Key Management</strong></h3>
+          <p><strong>Issue:</strong> Hawk currently lacks a built-in method to update existing IPStack API keys or add new ones after initial setup. If an API key is missing, invalid, or expired, Hawk will display error messages during IP geolocation attempts, such as:</p>
+          
+          <p class="ms-4 ps-2 border-start border-secondary">
+              <strong>[2025-05-08 10:15:22Z] - [ERROR] - Failed to retrieve location for IP 192.168.1.1</strong>
+          </p>
+          
+          <p>The current workflow has several limitations: the API key prompt appears mid-investigation rather than during initialization; skipping the initial key entry saves an empty string that can't be easily corrected; and once a key is stored (even if invalid), Hawk doesn't re-prompt for a replacement on subsequent runs.</p>
+            <p>For technical details and current status, see <a href="https://github.com/T0pCyber/hawk/issues/210" target="_blank">GitHub Issue #210</a>.</p>
+
+            <h4 class="mt-4">Impact:</h4>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>Users may experience unexpected IP geolocation failures</li>
+                <li>API key changes require manual configuration file editing</li>
+                <li>Error messages appear during IP resolution attempts when key is missing or invalid</li>
+            </ul>
+
+            <h4 class="mt-4">Current Workaround:</h4>
+            <p>To update or insert your IPStack API key, manually edit the configuration file:</p>
+            <ol class="list-decimal pl-6 space-y-2">
+                <li>Navigate to: <code>C:\Users\[YOUR USERNAME]\AppData\Local\Hawk\Hawk.json</code></li>
+                <li>Open the file in a text editor</li>
+                <li>Replace your old key with the new one, or add a key if there's an empty string</li>
+            </ol>
+            
+            <p class="mt-3"><strong>Example 1:</strong> Replacing an existing key</p>
+            <div class="border p-3 bg-light rounded code-example">
+<pre style="background-color: transparent; color: #333; border: none;">// Current configuration:
+{
+"access_key": "YOUR-OLD-KEY"
+}
+
+// Update to:
+{
+"access_key": "YOUR-NEW-KEY"
+}</pre>
+            </div>
+            
+            <p class="mt-3"><strong>Example 2:</strong> Adding a key when there's an empty string</p>
+            <div class="border p-3 bg-light rounded code-example">
+<pre style="background-color: transparent; color: #333; border: none;">// Current configuration:
+{
+"access_key": ""
+}
+
+// Update to:
+{
+"access_key": "YOUR-NEW-KEY"
+}</pre>
+            </div>
+
+            <h4 class="mt-4">Long-term Fix:</h4>
+            <p>We're working on a comprehensive solution that will:</p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>Add a command-line parameter for the API key</li>
+                <li>Move the API key prompt to initialization</li>
+                <li>Validate API keys to prevent empty/invalid values</li>
+                <li>Add a dedicated function to update the API key</li>
+                <li>Improve error handling for missing/invalid keys</li>
+            </ul>
+        </div>
+    </div>
   </section>
 
     <!-- Connection Issues Section -->
